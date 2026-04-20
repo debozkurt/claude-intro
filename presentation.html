@@ -232,7 +232,7 @@ section::after {
 }
 ;" data-marpit-pagination-total="62">
 <h1 id="claude-code">Claude Code</h1>
-<p><span class="small">A Primer</span></p>
+<p><span class="small">A Hands-On Primer</span></p>
 <p><strong>Derrick Bozkurt</strong> · <em>Prompt Engineers</em></p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
@@ -471,19 +471,19 @@ section::after {
 </tr>
 <tr>
 <td>2</td>
-<td>Ecosystem &amp; hierarchy</td>
+<td>Ecosystem &amp; structure</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Core usage + permissions</td>
+<td>Core usage &amp; control</td>
 </tr>
 <tr>
 <td>4</td>
-<td>Skills, subagents, hooks</td>
+<td>Extensibility primitives</td>
 </tr>
 <tr>
 <td>5</td>
-<td>Walkthrough: the <code>/tutor</code> skill</td>
+<td>Live build walkthrough</td>
 </tr>
 <tr>
 <td>6</td>
@@ -1163,7 +1163,7 @@ section::after {
 <li><img class="emoji" draggable="false" alt="✅" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/2705.svg" data-marp-twemoji=""/> Claude Code: <em>&quot;Add pagination to the user list endpoint. Check how other endpoints do it first.&quot;</em></li>
 </ul>
 <p>It'll <code>Read</code> similar files, follow your patterns, edit, and (if permitted) run tests.</p>
-<p><strong>The rest of this talk:</strong> how to set it up so it does that <em>well</em>.</p>
+<p><strong>The rest of this talk:</strong> how to set it up. The setup is what decides whether Claude Code stays a novelty or becomes part of your daily workflow.</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6" data-paginate="true" data-class="lead" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -1602,6 +1602,8 @@ section::after {
 }
 ;" data-marpit-pagination-total="62">
 <h2 id="prerequisites">Prerequisites</h2>
+<p><strong>Following along live?</strong> Install Claude Code and log in <strong>before</strong> we start — takes ~5 min (next slide).</p>
+<p>What you need:</p>
 <ul>
 <li><strong>git</strong> (<code>git --version</code>)</li>
 <li><strong>macOS, Linux, or Windows + WSL</strong></li>
@@ -3221,7 +3223,8 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="62">
-<h1 id="2--ecosystem--hierarchy">2 · Ecosystem &amp; hierarchy</h1>
+<h1 id="2--ecosystem--structure">2 · Ecosystem &amp; structure</h1>
+<p><span class="small">Global vs project config · CLAUDE.md precedence · @path imports · memory model</span></p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -6288,7 +6291,8 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="62">
-<h1 id="3--core-usage--permissions">3 · Core usage + permissions</h1>
+<h1 id="3--core-usage--control">3 · Core usage &amp; control</h1>
+<p><span class="small">Plan mode · headless · worktrees · permissions (allow/deny/ask) · ultrathink</span></p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="28" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -10067,7 +10071,8 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="62">
-<h1 id="4--skills-subagents-hooks">4 · Skills, subagents, hooks</h1>
+<h1 id="4--extensibility-primitives">4 · Extensibility primitives</h1>
+<p><span class="small">Skills, subagents, hooks — when to use each and how they compose</span></p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="44" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -11232,6 +11237,241 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="62">
+<h2 id="%E2%96%B6-hook-demo--blocking-git-push"><img class="emoji" draggable="false" alt="▶" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/25b6.svg" data-marp-twemoji=""/> Hook demo — blocking <code>git push</code></h2>
+<p>Live in <code>lab-app/.claude/settings.json</code>:</p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-json"><span class="hljs-attr">&quot;hooks&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;PreToolUse&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;matcher&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Bash&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;hooks&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;command&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;if&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Bash(git push:*)&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;printf &#x27;{\&quot;hookSpecificOutput\&quot;:{\&quot;hookEventName\&quot;:\&quot;PreToolUse\&quot;,\&quot;permissionDecision\&quot;:\&quot;deny\&quot;,\&quot;permissionDecisionReason\&quot;:\&quot;<img class="emoji" draggable="false" alt="🪝" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/1fa9d.svg" data-marp-twemoji=""/> Blocked by demo policy\&quot;}}&#x27;&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><strong>Setup:</strong> paste into <code>&lt;repo&gt;/.claude/settings.json</code> → trust the project on next <code>claude</code> launch → <code>/hooks</code> confirms it loaded.</p>
+<p><strong>How it fires:</strong> before every <code>Bash</code> call, Claude Code pipes a JSON payload to the hook's stdin. <code>if:</code> pre-filters by permission-rule pattern — non-matching commands skip the hook entirely. On match, the command prints stdout JSON with <code>permissionDecision: &quot;deny&quot;</code>; Claude Code surfaces the <code>permissionDecisionReason</code> as a red error block in the transcript. The command never runs.</p>
+<p><strong><img class="emoji" draggable="false" alt="▶" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/25b6.svg" data-marp-twemoji=""/> DEMO</strong> · Ask Claude: <em>&quot;push this to main.&quot;</em> Claude tries <code>git push</code>, hook denies, Claude reads the reason from the transcript and reports back — full agent-loop visible on screen.</p>
+<p><strong>Why blocking &gt; notifying:</strong> OS notifications (<code>osascript</code>, <code>notify-send</code>) need per-machine notification permissions and can fail silently on stage. <code>permissionDecision</code> renders directly in Claude Code's UI — reliable on every machine in the room.</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="49" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
+   Palette: warm near-black bg, off-white body, coral accent */
+section {
+  background: #1a1614 !important;
+  color: #e8e6e3 !important;
+  font-size: 26px;
+  font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Inter, sans-serif;
+  padding: 44px 60px !important;
+  line-height: 1.45;
+}
+section.lead {
+  background: #141210 !important;
+  padding: 60px 80px !important;
+}
+
+/* Headings — Claude coral */
+h1, h2, h3, h4 {
+  color: #d97757 !important;
+  font-weight: 600;
+  margin-top: 0.25em;
+  margin-bottom: 0.35em;
+}
+h1 { letter-spacing: -0.02em; }
+h2 {
+  border-bottom: 1px solid rgba(217, 119, 87, 0.22);
+  padding-bottom: 6px;
+  margin-top: 0 !important;
+}
+
+/* Body text */
+p { margin: 0.4em 0; }
+strong { color: #f5f1e8; }
+em { color: #d0cec8; }
+a { color: #d97757; text-decoration: none; border-bottom: 1px dashed rgba(217,119,87,0.5); }
+
+/* Inline code — coral-tinted chip */
+code {
+  background: rgba(217, 119, 87, 0.13);
+  color: #f0c9b6;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Code blocks — darker, with subtle border */
+pre {
+  background: #100e0d !important;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  font-size: 19px;
+  line-height: 1.42;
+  padding: 14px 18px;
+  margin: 0.5em 0;
+}
+pre code {
+  background: transparent;
+  color: #e8e6e3;
+  padding: 0;
+  font-size: 1em;
+}
+
+/* Tables */
+table {
+  font-size: 21px;
+  border-collapse: collapse;
+  margin: 6px 0;
+}
+th, td {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 12px;
+}
+th {
+  background: rgba(217, 119, 87, 0.12);
+  color: #f5f1e8;
+  font-weight: 600;
+}
+tr:nth-child(even) td { background: rgba(255, 255, 255, 0.02); }
+
+/* Blockquote */
+blockquote {
+  border-left: 3px solid #d97757;
+  background: rgba(217, 119, 87, 0.05);
+  color: #cfcdc8;
+  padding: 6px 14px;
+  margin: 8px 0;
+}
+
+/* Lists */
+ul, ol { line-height: 1.5; margin: 0.3em 0; }
+li { margin: 0.1em 0; }
+li::marker { color: #d97757; }
+
+/* Horizontal rules (for in-slide dividers, not slide breaks) */
+hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 0.5em 0;
+}
+
+/* Pagination + small text */
+section::after {
+  color: #6e6a63 !important;
+  font-weight: 400;
+}
+.small {
+  font-size: 18px;
+  color: #8a857d;
+}
+" lang="en-US" data-marpit-pagination="49" style="--paginate:true;--theme:gaia;--style:/* Claude-flavored modern dark theme
+   Palette: warm near-black bg, off-white body, coral accent */
+section {
+  background: #1a1614 !important;
+  color: #e8e6e3 !important;
+  font-size: 26px;
+  font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Inter, sans-serif;
+  padding: 44px 60px !important;
+  line-height: 1.45;
+}
+section.lead {
+  background: #141210 !important;
+  padding: 60px 80px !important;
+}
+
+/* Headings — Claude coral */
+h1, h2, h3, h4 {
+  color: #d97757 !important;
+  font-weight: 600;
+  margin-top: 0.25em;
+  margin-bottom: 0.35em;
+}
+h1 { letter-spacing: -0.02em; }
+h2 {
+  border-bottom: 1px solid rgba(217, 119, 87, 0.22);
+  padding-bottom: 6px;
+  margin-top: 0 !important;
+}
+
+/* Body text */
+p { margin: 0.4em 0; }
+strong { color: #f5f1e8; }
+em { color: #d0cec8; }
+a { color: #d97757; text-decoration: none; border-bottom: 1px dashed rgba(217,119,87,0.5); }
+
+/* Inline code — coral-tinted chip */
+code {
+  background: rgba(217, 119, 87, 0.13);
+  color: #f0c9b6;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Code blocks — darker, with subtle border */
+pre {
+  background: #100e0d !important;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  font-size: 19px;
+  line-height: 1.42;
+  padding: 14px 18px;
+  margin: 0.5em 0;
+}
+pre code {
+  background: transparent;
+  color: #e8e6e3;
+  padding: 0;
+  font-size: 1em;
+}
+
+/* Tables */
+table {
+  font-size: 21px;
+  border-collapse: collapse;
+  margin: 6px 0;
+}
+th, td {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 12px;
+}
+th {
+  background: rgba(217, 119, 87, 0.12);
+  color: #f5f1e8;
+  font-weight: 600;
+}
+tr:nth-child(even) td { background: rgba(255, 255, 255, 0.02); }
+
+/* Blockquote */
+blockquote {
+  border-left: 3px solid #d97757;
+  background: rgba(217, 119, 87, 0.05);
+  color: #cfcdc8;
+  padding: 6px 14px;
+  margin: 8px 0;
+}
+
+/* Lists */
+ul, ol { line-height: 1.5; margin: 0.3em 0; }
+li { margin: 0.1em 0; }
+li::marker { color: #d97757; }
+
+/* Horizontal rules (for in-slide dividers, not slide breaks) */
+hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 0.5em 0;
+}
+
+/* Pagination + small text */
+section::after {
+  color: #6e6a63 !important;
+  font-weight: 400;
+}
+.small {
+  font-size: 18px;
+  color: #8a857d;
+}
+;" data-marpit-pagination-total="62">
 <h2 id="when-to-reach-for-which--worked-examples">When to reach for which — worked examples</h2>
 <table>
 <thead>
@@ -11268,7 +11508,7 @@ section::after {
 </tbody>
 </table>
 </section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="49" data-paginate="true" data-class="lead" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="50" data-paginate="true" data-class="lead" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
 section {
   background: #1a1614 !important;
@@ -11376,226 +11616,7 @@ section::after {
   font-size: 18px;
   color: #8a857d;
 }
-" lang="en-US" class="lead" data-marpit-pagination="49" style="--paginate:true;--class:lead;--theme:gaia;--style:/* Claude-flavored modern dark theme
-   Palette: warm near-black bg, off-white body, coral accent */
-section {
-  background: #1a1614 !important;
-  color: #e8e6e3 !important;
-  font-size: 26px;
-  font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Inter, sans-serif;
-  padding: 44px 60px !important;
-  line-height: 1.45;
-}
-section.lead {
-  background: #141210 !important;
-  padding: 60px 80px !important;
-}
-
-/* Headings — Claude coral */
-h1, h2, h3, h4 {
-  color: #d97757 !important;
-  font-weight: 600;
-  margin-top: 0.25em;
-  margin-bottom: 0.35em;
-}
-h1 { letter-spacing: -0.02em; }
-h2 {
-  border-bottom: 1px solid rgba(217, 119, 87, 0.22);
-  padding-bottom: 6px;
-  margin-top: 0 !important;
-}
-
-/* Body text */
-p { margin: 0.4em 0; }
-strong { color: #f5f1e8; }
-em { color: #d0cec8; }
-a { color: #d97757; text-decoration: none; border-bottom: 1px dashed rgba(217,119,87,0.5); }
-
-/* Inline code — coral-tinted chip */
-code {
-  background: rgba(217, 119, 87, 0.13);
-  color: #f0c9b6;
-  padding: 1px 5px;
-  border-radius: 4px;
-  font-size: 0.9em;
-}
-
-/* Code blocks — darker, with subtle border */
-pre {
-  background: #100e0d !important;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  font-size: 19px;
-  line-height: 1.42;
-  padding: 14px 18px;
-  margin: 0.5em 0;
-}
-pre code {
-  background: transparent;
-  color: #e8e6e3;
-  padding: 0;
-  font-size: 1em;
-}
-
-/* Tables */
-table {
-  font-size: 21px;
-  border-collapse: collapse;
-  margin: 6px 0;
-}
-th, td {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 8px 12px;
-}
-th {
-  background: rgba(217, 119, 87, 0.12);
-  color: #f5f1e8;
-  font-weight: 600;
-}
-tr:nth-child(even) td { background: rgba(255, 255, 255, 0.02); }
-
-/* Blockquote */
-blockquote {
-  border-left: 3px solid #d97757;
-  background: rgba(217, 119, 87, 0.05);
-  color: #cfcdc8;
-  padding: 6px 14px;
-  margin: 8px 0;
-}
-
-/* Lists */
-ul, ol { line-height: 1.5; margin: 0.3em 0; }
-li { margin: 0.1em 0; }
-li::marker { color: #d97757; }
-
-/* Horizontal rules (for in-slide dividers, not slide breaks) */
-hr {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin: 0.5em 0;
-}
-
-/* Pagination + small text */
-section::after {
-  color: #6e6a63 !important;
-  font-weight: 400;
-}
-.small {
-  font-size: 18px;
-  color: #8a857d;
-}
-;" data-marpit-pagination-total="62">
-<h1 id="5--live-walkthrough-the-tutor-skill">5 · Live walkthrough: the <code>/tutor</code> skill</h1>
-</section>
-</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="50" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
-   Palette: warm near-black bg, off-white body, coral accent */
-section {
-  background: #1a1614 !important;
-  color: #e8e6e3 !important;
-  font-size: 26px;
-  font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Inter, sans-serif;
-  padding: 44px 60px !important;
-  line-height: 1.45;
-}
-section.lead {
-  background: #141210 !important;
-  padding: 60px 80px !important;
-}
-
-/* Headings — Claude coral */
-h1, h2, h3, h4 {
-  color: #d97757 !important;
-  font-weight: 600;
-  margin-top: 0.25em;
-  margin-bottom: 0.35em;
-}
-h1 { letter-spacing: -0.02em; }
-h2 {
-  border-bottom: 1px solid rgba(217, 119, 87, 0.22);
-  padding-bottom: 6px;
-  margin-top: 0 !important;
-}
-
-/* Body text */
-p { margin: 0.4em 0; }
-strong { color: #f5f1e8; }
-em { color: #d0cec8; }
-a { color: #d97757; text-decoration: none; border-bottom: 1px dashed rgba(217,119,87,0.5); }
-
-/* Inline code — coral-tinted chip */
-code {
-  background: rgba(217, 119, 87, 0.13);
-  color: #f0c9b6;
-  padding: 1px 5px;
-  border-radius: 4px;
-  font-size: 0.9em;
-}
-
-/* Code blocks — darker, with subtle border */
-pre {
-  background: #100e0d !important;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  font-size: 19px;
-  line-height: 1.42;
-  padding: 14px 18px;
-  margin: 0.5em 0;
-}
-pre code {
-  background: transparent;
-  color: #e8e6e3;
-  padding: 0;
-  font-size: 1em;
-}
-
-/* Tables */
-table {
-  font-size: 21px;
-  border-collapse: collapse;
-  margin: 6px 0;
-}
-th, td {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 8px 12px;
-}
-th {
-  background: rgba(217, 119, 87, 0.12);
-  color: #f5f1e8;
-  font-weight: 600;
-}
-tr:nth-child(even) td { background: rgba(255, 255, 255, 0.02); }
-
-/* Blockquote */
-blockquote {
-  border-left: 3px solid #d97757;
-  background: rgba(217, 119, 87, 0.05);
-  color: #cfcdc8;
-  padding: 6px 14px;
-  margin: 8px 0;
-}
-
-/* Lists */
-ul, ol { line-height: 1.5; margin: 0.3em 0; }
-li { margin: 0.1em 0; }
-li::marker { color: #d97757; }
-
-/* Horizontal rules (for in-slide dividers, not slide breaks) */
-hr {
-  border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  margin: 0.5em 0;
-}
-
-/* Pagination + small text */
-section::after {
-  color: #6e6a63 !important;
-  font-weight: 400;
-}
-.small {
-  font-size: 18px;
-  color: #8a857d;
-}
-" lang="en-US" data-marpit-pagination="50" style="--paginate:true;--theme:gaia;--style:/* Claude-flavored modern dark theme
+" lang="en-US" class="lead" data-marpit-pagination="50" style="--paginate:true;--class:lead;--theme:gaia;--style:/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
 section {
   background: #1a1614 !important;
@@ -11704,16 +11725,8 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="62">
-<h2 id="meet-tutor">Meet <code>/tutor</code></h2>
-<p>A real, 285-line skill that turns debugging sessions and code reviews into deep learning moments.</p>
-<p><strong>What makes it a good teaching example:</strong></p>
-<ul>
-<li>Non-trivial — 7 invocation modes, argument parsing, doc persistence</li>
-<li>Uses <strong>every</strong> frontmatter field you'd care about</li>
-<li>Uses a <strong>5-layer teaching framework</strong> — the skill body is a prompt-as-code artifact</li>
-<li>Persists results — each lesson is appended to <code>~/.claude/skills/tutor/docs/&lt;domain&gt;.md</code></li>
-</ul>
-<p><strong>Full source in the <code>bonus-skills/</code> folder of this repo.</strong> Drop it into your own <code>~/.claude/skills/tutor/</code> to use it.</p>
+<h1 id="5--live-build-walkthrough">5 · Live build walkthrough</h1>
+<p><span class="small">Deploy a real <code>/tutor</code> skill, backed by a research subagent, end-to-end</span></p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="51" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -11932,20 +11945,16 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="62">
-<h2 id="tutor--reading-the-frontmatter"><code>/tutor</code> — reading the frontmatter</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">tutor</span>
-<span class="hljs-attr">description:</span> <span class="hljs-string">Principal</span> <span class="hljs-string">engineer</span> <span class="hljs-string">mentor.</span> <span class="hljs-string">Context-aware</span> <span class="hljs-string">teaching</span> <span class="hljs-string">with</span> <span class="hljs-string">persistent</span>
-  <span class="hljs-string">lesson</span> <span class="hljs-string">docs.</span> <span class="hljs-string">Use</span> <span class="hljs-string">when</span> <span class="hljs-string">user</span> <span class="hljs-string">says</span> <span class="hljs-string">&quot;tutor&quot;</span> <span class="hljs-string">or</span> <span class="hljs-string">wants</span> <span class="hljs-string">the</span> <span class="hljs-string">&quot;why&quot;</span> <span class="hljs-string">behind</span> <span class="hljs-string">code.</span>
-<span class="hljs-attr">user-invocable:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">allowed-tools:</span> <span class="hljs-string">Bash,</span> <span class="hljs-string">Read,</span> <span class="hljs-string">Write,</span> <span class="hljs-string">Edit,</span> <span class="hljs-string">Glob,</span> <span class="hljs-string">Grep,</span> <span class="hljs-string">WebSearch</span>
-<span class="hljs-attr">argument-hint:</span> <span class="hljs-string">&quot;[topic] [--socratic] [--deep] [--review] [--debug] [--progress]&quot;</span>
-</code></pre>
-<p><strong>Design choices to steal:</strong></p>
+<h2 id="meet-tutor">Meet <code>/tutor</code></h2>
+<p>A real, 285-line skill that turns debugging sessions and code reviews into deep learning moments.</p>
+<p><strong>What makes it a good teaching example:</strong></p>
 <ul>
-<li><code>description</code> is <strong>specific</strong> — names trigger words (&quot;tutor&quot;, &quot;why&quot;), so Claude auto-suggests it at the right moments.</li>
-<li><code>allowed-tools</code> is <strong>tight</strong> — no <code>Bash(rm:*)</code>, no destructive ops. Least privilege.</li>
-<li><code>argument-hint</code> shows flags — users discover the full API without reading the body.</li>
+<li>Non-trivial — 7 invocation modes, argument parsing, doc persistence</li>
+<li>Uses <strong>every</strong> frontmatter field you'd care about</li>
+<li>Uses a <strong>5-layer teaching framework</strong> — the skill body is a prompt-as-code artifact</li>
+<li>Persists results — each lesson is appended to <code>~/.claude/skills/tutor/docs/&lt;domain&gt;.md</code></li>
 </ul>
+<p><strong>Full source in the <code>bonus-skills/</code> folder of this repo.</strong> Drop it into your own <code>~/.claude/skills/tutor/</code> to use it.</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="52" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -12164,14 +12173,20 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="62">
-<h2 id="tutor--the-body-design"><code>/tutor</code> — the body design</h2>
-<p>The body <em>is</em> the system prompt appended when invoked. Four design choices worth stealing:</p>
-<ol>
-<li><strong>Flags compose</strong> — <code>/tutor --socratic --debug &quot;topic&quot;</code>. One skill + flags beats 7 skills.</li>
-<li><strong>Named framework (5 layers)</strong> — Situation → Mechanism → Principle → Adjacent → Pattern Recognition. Predictable shape; easy for the model to obey.</li>
-<li><strong>Default vs <code>--deep</code></strong> — ships layers 1–3, offers to expand. Respects time; opt-in depth.</li>
-<li><strong>Persistence</strong> — writes lessons to <code>~/.claude/skills/tutor/docs/&lt;domain&gt;.md</code> + updates <code>index.md</code>. Compounds into a personal knowledge base.</li>
-</ol>
+<h2 id="tutor--reading-the-frontmatter"><code>/tutor</code> — reading the frontmatter</h2>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">tutor</span>
+<span class="hljs-attr">description:</span> <span class="hljs-string">Principal</span> <span class="hljs-string">engineer</span> <span class="hljs-string">mentor.</span> <span class="hljs-string">Context-aware</span> <span class="hljs-string">teaching</span> <span class="hljs-string">with</span> <span class="hljs-string">persistent</span>
+  <span class="hljs-string">lesson</span> <span class="hljs-string">docs.</span> <span class="hljs-string">Use</span> <span class="hljs-string">when</span> <span class="hljs-string">user</span> <span class="hljs-string">says</span> <span class="hljs-string">&quot;tutor&quot;</span> <span class="hljs-string">or</span> <span class="hljs-string">wants</span> <span class="hljs-string">the</span> <span class="hljs-string">&quot;why&quot;</span> <span class="hljs-string">behind</span> <span class="hljs-string">code.</span>
+<span class="hljs-attr">user-invocable:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">allowed-tools:</span> <span class="hljs-string">Bash,</span> <span class="hljs-string">Read,</span> <span class="hljs-string">Write,</span> <span class="hljs-string">Edit,</span> <span class="hljs-string">Glob,</span> <span class="hljs-string">Grep,</span> <span class="hljs-string">WebSearch</span>
+<span class="hljs-attr">argument-hint:</span> <span class="hljs-string">&quot;[topic] [--socratic] [--deep] [--review] [--debug] [--progress]&quot;</span>
+</code></pre>
+<p><strong>Design choices to steal:</strong></p>
+<ul>
+<li><code>description</code> is <strong>specific</strong> — names trigger words (&quot;tutor&quot;, &quot;why&quot;), so Claude auto-suggests it at the right moments.</li>
+<li><code>allowed-tools</code> is <strong>tight</strong> — no <code>Bash(rm:*)</code>, no destructive ops. Least privilege.</li>
+<li><code>argument-hint</code> shows flags — users discover the full API without reading the body.</li>
+</ul>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="53" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -12390,15 +12405,14 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="62">
-<h2 id="the-5-layer-framework-why-it-works">The 5-layer framework (why it works)</h2>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code>Layer 1 — Situation     [ground in the concrete problem from context]
-Layer 2 — Mechanism     [how it works, Mermaid diagram if useful]
-Layer 3 — Principle     [name the rule, explain why it exists]
-Layer 4 — Adjacent      [2-3 related concepts to round out the mental model]
-Layer 5 — Pattern       [&quot;when you see X, check for Y, because Z&quot;]
-</code></pre>
-<p><strong>Why layered:</strong> teaching collapses without structure. Without layer 1, lessons feel abstract. Without layer 3, they feel like trivia. Without layer 5, they don't <em>generalize</em> — the learner solves this bug but can't spot the class of bug.</p>
-<p><strong>The takeaway for YOUR skills:</strong> give your skill a <em>named framework</em> its body enforces. A skill without structure is just a long prompt; a skill with structure is a reliable tool.</p>
+<h2 id="tutor--the-body-design"><code>/tutor</code> — the body design</h2>
+<p>The body <em>is</em> the system prompt appended when invoked. Four design choices worth stealing:</p>
+<ol>
+<li><strong>Flags compose</strong> — <code>/tutor --socratic --debug &quot;topic&quot;</code>. One skill + flags beats 7 skills.</li>
+<li><strong>Named framework (5 layers)</strong> — Situation → Mechanism → Principle → Adjacent → Pattern Recognition. Predictable shape; easy for the model to obey.</li>
+<li><strong>Default vs <code>--deep</code></strong> — ships layers 1–3, offers to expand. Respects time; opt-in depth.</li>
+<li><strong>Persistence</strong> — writes lessons to <code>~/.claude/skills/tutor/docs/&lt;domain&gt;.md</code> + updates <code>index.md</code>. Compounds into a personal knowledge base.</li>
+</ol>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="54" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -12617,17 +12631,15 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="62">
-<h2 id="persistence-pattern-steal-this">Persistence pattern (steal this)</h2>
-<p>Every non-review lesson, <code>/tutor</code>:</p>
-<ol>
-<li><strong>Classifies</strong> the domain (<code>python</code>, <code>databases</code>, <code>architecture</code>, ...)</li>
-<li><strong>Reads</strong> the existing topic file if it exists</li>
-<li><strong>Appends</strong> a new lesson (or adds an example to an existing one)</li>
-<li><strong>Updates</strong> <code>docs/index.md</code> with the lesson title + date</li>
-<li><strong>Cross-references</strong> related lessons in other domains</li>
-</ol>
-<p>Result: a growing, self-organizing personal knowledge base. Fully markdown. Renders in GitHub/Obsidian/VS Code.</p>
-<p><strong>Apply this to:</strong> <code>/commit-ready</code> (log commit patterns), <code>/incident</code> (persist RCAs), <code>/onboard-repo</code> (build a growing project guide). Any skill whose output <em>accumulates</em> should persist.</p>
+<h2 id="the-5-layer-framework-why-it-works">The 5-layer framework (why it works)</h2>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code>Layer 1 — Situation     [ground in the concrete problem from context]
+Layer 2 — Mechanism     [how it works, Mermaid diagram if useful]
+Layer 3 — Principle     [name the rule, explain why it exists]
+Layer 4 — Adjacent      [2-3 related concepts to round out the mental model]
+Layer 5 — Pattern       [&quot;when you see X, check for Y, because Z&quot;]
+</code></pre>
+<p><strong>Why layered:</strong> teaching collapses without structure. Without layer 1, lessons feel abstract. Without layer 3, they feel like trivia. Without layer 5, they don't <em>generalize</em> — the learner solves this bug but can't spot the class of bug.</p>
+<p><strong>The takeaway for YOUR skills:</strong> give your skill a <em>named framework</em> its body enforces. A skill without structure is just a long prompt; a skill with structure is a reliable tool.</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="55" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -12846,15 +12858,17 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="62">
-<h2 id="%E2%96%B6-build-your-claude-code-knowledgebase"><img class="emoji" draggable="false" alt="▶" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/25b6.svg" data-marp-twemoji=""/> Build YOUR Claude Code knowledgebase</h2>
-<p>Use <code>/tutor</code> on concepts from today — each invocation persists a lesson:</p>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code>/tutor --socratic &quot;how CLAUDE.md hierarchy and precedence work&quot;
-/tutor --deep &quot;permission modes and when to use each&quot;
-/tutor &quot;the difference between skills, subagents, and hooks&quot;
-/tutor --progress
-</code></pre>
-<p><strong>Result:</strong> <code>~/.claude/skills/tutor/docs/claude-code.md</code> fills in over time. A week from now, <code>--progress</code> shows a growing map — not just Claude Code, but your whole engineering stack.</p>
-<p><strong><img class="emoji" draggable="false" alt="▶" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/25b6.svg" data-marp-twemoji=""/> DEMO</strong> · In <code>lab-app/</code>, run <code>/tutor --research &quot;CSS color contrast ratios for accessibility&quot;</code>. Watch the <code>tutor-researcher</code> subagent gather sources, <code>/tutor</code> cite them inline, and a lesson persist to <code>~/.claude/skills/tutor/docs/</code>.</p>
+<h2 id="persistence-pattern-steal-this">Persistence pattern (steal this)</h2>
+<p>Every non-review lesson, <code>/tutor</code>:</p>
+<ol>
+<li><strong>Classifies</strong> the domain (<code>python</code>, <code>databases</code>, <code>architecture</code>, ...)</li>
+<li><strong>Reads</strong> the existing topic file if it exists</li>
+<li><strong>Appends</strong> a new lesson (or adds an example to an existing one)</li>
+<li><strong>Updates</strong> <code>docs/index.md</code> with the lesson title + date</li>
+<li><strong>Cross-references</strong> related lessons in other domains</li>
+</ol>
+<p>Result: a growing, self-organizing personal knowledge base. Fully markdown. Renders in GitHub/Obsidian/VS Code.</p>
+<p><strong>Apply this to:</strong> <code>/commit-ready</code> (log commit patterns), <code>/incident</code> (persist RCAs), <code>/onboard-repo</code> (build a growing project guide). Any skill whose output <em>accumulates</em> should persist.</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="56" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -13073,29 +13087,15 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="62">
-<h2 id="composition--skill--subagent--hook">Composition — skill + subagent + hook</h2>
-<p>Extending <code>/tutor</code> into a full pipeline with <code>/tutor --research &quot;topic&quot;</code>:</p>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code>  ┌─────────────────────┐
-  │ /tutor --research   │
-  └──────────┬──────────┘
-             ▼
-  ┌─────────────────────┐   Subagent — own context,
-  │ tutor-researcher    │   scoped tools, returns
-  │ (sources + prior    │   structured findings
-  │  art + citations)   │
-  └──────────┬──────────┘
-             ▼
-  ┌─────────────────────┐   Skill body — synthesizes
-  │ /tutor teaches with │   the 5-layer lesson WITH
-  │ inline citations    │   inline refs + bibliography
-  └──────────┬──────────┘
-             ▼
-  ┌─────────────────────┐   Hook — PostToolUse fires
-  │ &quot;lesson saved&quot;      │   when the lesson is persisted
-  │ notification        │   (filter by content marker)
-  └─────────────────────┘
+<h2 id="%E2%96%B6-build-your-claude-code-knowledgebase"><img class="emoji" draggable="false" alt="▶" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/25b6.svg" data-marp-twemoji=""/> Build YOUR Claude Code knowledgebase</h2>
+<p>Use <code>/tutor</code> on concepts from today — each invocation persists a lesson:</p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code>/tutor --socratic &quot;how CLAUDE.md hierarchy and precedence work&quot;
+/tutor --deep &quot;permission modes and when to use each&quot;
+/tutor &quot;the difference between skills, subagents, and hooks&quot;
+/tutor --progress
 </code></pre>
-<p>Subagent keeps research out of main context. Skill enforces structure + citations. Hook makes it observable.</p>
+<p><strong>Result:</strong> <code>~/.claude/skills/tutor/docs/claude-code.md</code> fills in over time. A week from now, <code>--progress</code> shows a growing map — not just Claude Code, but your whole engineering stack.</p>
+<p><strong><img class="emoji" draggable="false" alt="▶" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/25b6.svg" data-marp-twemoji=""/> DEMO</strong> · In <code>lab-app/</code>, run <code>/tutor --research &quot;CSS color contrast ratios for accessibility&quot;</code>. Watch the <code>tutor-researcher</code> subagent gather sources, <code>/tutor</code> cite them inline, and a lesson persist to <code>~/.claude/skills/tutor/docs/</code>.</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="57" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -13314,16 +13314,30 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="62">
-<h2 id="the-research-subagent-anatomy">The research subagent (anatomy)</h2>
-<p><code>~/.claude/agents/tutor-researcher.md</code>:</p>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">name:</span> <span class="hljs-string">tutor-researcher</span>
-<span class="hljs-attr">description:</span> <span class="hljs-string">Deep-research</span> <span class="hljs-string">companion</span> <span class="hljs-string">for</span> <span class="hljs-string">/tutor.</span> <span class="hljs-string">Gathers</span> <span class="hljs-string">sources</span> <span class="hljs-string">+</span> <span class="hljs-string">surfaces</span>
-  <span class="hljs-string">prior</span> <span class="hljs-string">lessons;</span> <span class="hljs-string">returns</span> <span class="hljs-string">structured</span> <span class="hljs-string">findings</span> <span class="hljs-string">with</span> <span class="hljs-string">citations.</span>
-<span class="hljs-attr">tools:</span> <span class="hljs-string">WebSearch,</span> <span class="hljs-string">WebFetch,</span> <span class="hljs-string">Read,</span> <span class="hljs-string">Grep,</span> <span class="hljs-string">Glob</span>
-<span class="hljs-meta">---
-</span></code></pre>
-<p><strong>Why a subagent and not just more prompt?</strong> Subagents run in their own <strong>isolated context window</strong> with a <strong>scoped tool budget</strong>. Web-search noise, half-read pages, and dead-end queries stay out of the main conversation — only the distilled findings come back. Reach for one when a task has a clear input/output contract, benefits from depth, and would otherwise pollute context you need to keep lean.</p>
+<h2 id="composition--skill--subagent--persistence">Composition — skill + subagent + persistence</h2>
+<p>Extending <code>/tutor</code> into a full pipeline with <code>/tutor --research &quot;topic&quot;</code>:</p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code>  ┌─────────────────────┐
+  │ /tutor --research   │
+  └──────────┬──────────┘
+             ▼
+  ┌─────────────────────┐   Subagent — own context,
+  │ tutor-researcher    │   scoped tools, returns
+  │ (sources + prior    │   structured findings
+  │  art + citations)   │
+  └──────────┬──────────┘
+             ▼
+  ┌─────────────────────┐   Skill body — synthesizes
+  │ /tutor teaches with │   the 5-layer lesson WITH
+  │ inline citations    │   inline refs + bibliography
+  └──────────┬──────────┘
+             ▼
+  ┌──────────────────────────────────┐
+  │ ~/.claude/skills/tutor/docs/     │   Appends lesson to
+  │   &lt;domain&gt;.md                    │   the domain file,
+  │   index.md                       │   updates docs/index.md
+  └──────────────────────────────────┘
+</code></pre>
+<p>Subagent keeps research out of main context. Skill enforces structure + citations. Persistence compounds every session into a growing markdown knowledge base.</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="58" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -13542,27 +13556,16 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="62">
-<h2 id="the-completion-hook">The completion hook</h2>
-<p>In <code>~/.claude/settings.json</code>:</p>
-<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-json"><span class="hljs-punctuation">{</span>
-  <span class="hljs-attr">&quot;hooks&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">&quot;PostToolUse&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span>
-      <span class="hljs-attr">&quot;matcher&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Write&quot;</span><span class="hljs-punctuation">,</span>
-      <span class="hljs-attr">&quot;hooks&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">{</span>
-        <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;command&quot;</span><span class="hljs-punctuation">,</span>
-        <span class="hljs-attr">&quot;command&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;jq -r &#x27;.tool_input.file_path&#x27; | grep -q &#x27;/\\.claude/skills/tutor/docs/&#x27; &amp;&amp; osascript -e &#x27;display notification \&quot;Lesson saved\&quot; with title \&quot;/tutor\&quot;&#x27;&quot;</span>
-      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
-    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">]</span>
-  <span class="hljs-punctuation">}</span>
-<span class="hljs-punctuation">}</span>
-</code></pre>
-<ul>
-<li>Fires after every <code>Write</code> — hooks read a JSON payload from <strong>stdin</strong> (<code>tool_name</code>, <code>tool_input</code>, <code>session_id</code>).</li>
-<li><code>jq</code> pulls the path; <code>grep -q</code> filters to tutor docs only. Non-match = silent exit.</li>
-<li>macOS <code>osascript</code>; swap for <code>notify-send</code> (Linux) or <code>curl</code> → Slack webhook.</li>
-</ul>
-<p><strong><img class="emoji" draggable="false" alt="▶" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/25b6.svg" data-marp-twemoji=""/> DEMO</strong> · Paste the snippet into <code>~/.claude/settings.json</code>, restart Claude, run <code>/tutor &quot;why CSS specificity cascades&quot;</code>. When the lesson persists, the notification fires — deterministic, model-independent.</p>
-<p><strong>Lesson:</strong> hooks make skill output <strong>observable</strong>. You always know when something ran.</p>
+<h2 id="the-research-subagent-anatomy">The research subagent (anatomy)</h2>
+<p><code>~/.claude/agents/tutor-researcher.md</code>:</p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">tutor-researcher</span>
+<span class="hljs-attr">description:</span> <span class="hljs-string">Deep-research</span> <span class="hljs-string">companion</span> <span class="hljs-string">for</span> <span class="hljs-string">/tutor.</span> <span class="hljs-string">Gathers</span> <span class="hljs-string">sources</span> <span class="hljs-string">+</span> <span class="hljs-string">surfaces</span>
+  <span class="hljs-string">prior</span> <span class="hljs-string">lessons;</span> <span class="hljs-string">returns</span> <span class="hljs-string">structured</span> <span class="hljs-string">findings</span> <span class="hljs-string">with</span> <span class="hljs-string">citations.</span>
+<span class="hljs-attr">tools:</span> <span class="hljs-string">WebSearch,</span> <span class="hljs-string">WebFetch,</span> <span class="hljs-string">Read,</span> <span class="hljs-string">Grep,</span> <span class="hljs-string">Glob</span>
+<span class="hljs-meta">---
+</span></code></pre>
+<p><strong>Why a subagent and not just more prompt?</strong> Subagents run in their own <strong>isolated context window</strong> with a <strong>scoped tool budget</strong>. Web-search noise, half-read pages, and dead-end queries stay out of the main conversation — only the distilled findings come back. Reach for one when a task has a clear input/output contract, benefits from depth, and would otherwise pollute context you need to keep lean.</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="59" data-paginate="true" data-class="lead" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -14452,7 +14455,7 @@ section::after {
 ;" data-marpit-pagination-total="62">
 <h2 id="thanks">Thanks!</h2>
 <p><strong>Let's stay in touch</strong></p>
-<p><img src="linkedin-qr.png" alt="" style="width:220px;height:220px;" /></p>
+<p><img src="assets/linkedin-qr.png" alt="" style="width:220px;height:220px;" /></p>
 <p><span class="small"><strong>LinkedIn:</strong> linkedin.com/in/debozkurt<br />
 <strong>Prompt Engineers:</strong> promptengineers.ai · meetup.com/plano-prompt-engineers<br />
 <strong>Email:</strong> <a href="mailto:debozkurt@gmail.com">debozkurt@gmail.com</a></span></p>

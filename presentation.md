@@ -1109,7 +1109,7 @@ tools: WebSearch, WebFetch, Read, Grep, Glob
 
 **Let's stay in touch**
 
-![w:220 h:220](linkedin-qr.png)
+![w:220 h:220](assets/linkedin-qr.png)
 
 <span class="small">**LinkedIn:** linkedin.com/in/debozkurt
 **Prompt Engineers:** promptengineers.ai · meetup.com/plano-prompt-engineers
