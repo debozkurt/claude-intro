@@ -189,14 +189,27 @@ What you need:
 
 ## Install
 
-Official install commands per OS live at **code.claude.com/docs/en/quickstart** — macOS, Linux, and Windows + WSL each have their own path (native installer, Homebrew, or scripted setup).
-
-After install:
+**macOS / Linux / WSL**
 
 ```bash
-claude --version
-claude            # launches the TUI in the current directory
+curl -fsSL https://claude.ai/install.sh | bash
 ```
+
+**Windows (PowerShell)**
+
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+**Homebrew (macOS)**
+
+```bash
+brew install --cask claude-code
+```
+
+Full guide → [docs.claude.com/en/docs/claude-code/quickstart](https://docs.claude.com/en/docs/claude-code/quickstart)
+
+Verify: `claude --version`
 
 ---
 
@@ -342,6 +355,38 @@ Think of it like `~/.ssh/` or `~/.gitconfig` — your personal Claude Code profi
 
 ---
 
+## Directories worth knowing — config
+
+**Committed** — you author these, safe to share in dotfiles:
+
+| Dir | What lives here |
+|---|---|
+| `skills/` | Skills (SKILL.md + resources) invoked by `/name` |
+| `agents/` | Subagent definitions (prompt + tool allowlist) |
+| `commands/` | Custom `/slash-commands` |
+| `plugins/` | Installed plugins (skills/agents/commands bundled) |
+
+Plus `CLAUDE.md`, `settings.json`, `keybindings.json` at the root.
+
+---
+
+## Directories worth knowing — runtime state
+
+**Gitignored** — Claude writes these as you work:
+
+| Dir | What lives here |
+|---|---|
+| `projects/` | Per-project session transcripts **+ `memory/` files** |
+| `plans/` | Saved plan-mode outputs |
+| `todos/` | In-session task lists |
+| `paste-cache/` | Images/large text pasted into the TUI |
+| `shell-snapshots/`, `session-env/` | Captured shell state per session |
+| `file-history/` | Pre-edit snapshots (powers `/rewind`) |
+
+**Why it matters:** `projects/<slug>/memory/` is where auto-memory persists. Back it up, grep it, or wipe a slug to reset what Claude "knows" about a repo.
+
+---
+
 ## Inside `<repo>/.claude/` (project)
 
 ```
@@ -393,48 +438,46 @@ On each turn, Claude Code assembles a prompt:
 
 ## `@path` imports inside CLAUDE.md
 
-Pull in existing docs instead of rewriting them:
+Pull in existing docs instead of rewriting them. Real example from our lab app — `lab-app/CLAUDE.md`:
 
 ```markdown
-# Project notes
-
-Architecture: @docs/architecture.md
-Style guide:  @.claude/STYLE.md
+- Visual style deliberately mirrors the slide deck. See the full palette,
+  typography, and contrast rules in @docs/design-tokens.md — reuse the
+  tokens defined there instead of hardcoding colors.
 ```
 
-At session start, each `@path` is expanded inline — up to **5 levels** of recursive imports. Claude sees the referenced file's full contents.
+At session start, `@docs/design-tokens.md` is **expanded inline** — Claude sees the full contents (palette table, typography stack, contrast rules) as if you'd pasted them directly into `CLAUDE.md`. Up to **5 levels** of recursive imports.
 
-**Why it matters:** CLAUDE.md is a *table of contents*, not a re-documentation of your repo. Keep the file short; hoist the rest via `@path`.
+**▶ Try it:** ask Claude `what's the accent color?` — it answers `#d97757` with zero tool calls, because the token doc was pre-loaded via the import.
+
+**Why it matters:** CLAUDE.md becomes a *table of contents*, not a re-documentation. Keep it short; hoist the rest via `@path`. Designers can edit `design-tokens.md` without touching Claude config.
 
 ---
 
 ## `.claude/rules/` — modular, scoped instructions
 
-**What it is:** a directory of topic-specific markdown files that Claude loads alongside `CLAUDE.md`. Every `.md` is discovered recursively.
-
-**When to use it:**
-- `CLAUDE.md` is growing past ~200 lines
-- Rules apply only to certain file types or directories (path-scoping)
-- You want to share rules across projects via symlinks
-- Different teammates care about different rulesets
-
-**How to organize:**
+A directory of topic-specific markdown files Claude auto-loads alongside `CLAUDE.md`. Two flavors — **always-on** and **path-scoped**. Real examples from our lab app:
 
 ```
-your-repo/
-├── CLAUDE.md                 # the essentials: stack, workflows, top guardrails
-└── .claude/rules/
-    ├── code-style.md         # how code should look
-    ├── testing.md            # how to test, what's required
-    ├── api-conventions.md    # API rules (can be path-scoped)
-    └── security.md           # security requirements
+lab-app/.claude/rules/
+├── no-build-tooling.md        # always-on — no frontmatter
+└── html-accessibility.md      # path-scoped — loads only on *.html
 ```
 
-**Tips:**
-- Rules without `paths:` frontmatter load every session — same weight as CLAUDE.md.
-- Rules *with* a `paths:` frontmatter load only when Claude touches matching files — monorepos save tons of context this way.
-- `~/.claude/rules/` for personal rules across *every* project.
-- Symlink a shared rules dir from multiple repos to avoid copy-paste drift.
+**Path-scoped** — frontmatter gates when it loads:
+
+```markdown
+---
+paths:
+  - "**/*.html"
+---
+# HTML accessibility
+Every <img> needs alt text. Use semantic tags. WCAG AA contrast...
+```
+
+**▶ Try it:** ask Claude to `add a testimonials section to styles.css` — the HTML rule stays out of context. Ask it to `add a testimonials section to index.html` — the accessibility rule loads automatically.
+
+**Why it matters:** `CLAUDE.md` stays under 200 lines; specialized rules only pay for themselves when they're relevant. Also: `~/.claude/rules/` applies globally, and symlinking a shared rules dir across repos kills copy-paste drift.
 
 ---
 

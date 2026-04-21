@@ -11,9 +11,9 @@ at the Plano Prompt Engineers meetup. Deployable as static HTML to any host
   during the talk).
 - Audience is technical developers — the copy assumes they know git and
   basic web tooling.
-- Visual style deliberately mirrors the slide deck: warm near-black background
-  (`#1a1614`), coral accent (`#d97757`), off-white body text. Keep the palette
-  consistent if you add sections.
+- Visual style deliberately mirrors the slide deck. See the full palette,
+  typography, and contrast rules in @docs/design-tokens.md — reuse the tokens
+  defined there instead of hardcoding colors.
 
 ## Conventions
 
