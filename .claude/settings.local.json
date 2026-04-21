@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(marp --version)",
+      "Bash(grep -Ei \"package|makefile|build|\\\\.sh$\")",
+      "Bash(marp presentation.md --html --allow-local-files -o presentation.html)",
+      "Bash(marp presentation.md --pdf --allow-local-files -o presentation.pdf)",
+      "Bash(npx --no-install marp --version)",
+      "Bash(marp presentation.md -o presentation.html --html)",
+      "Bash(marp *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
