@@ -121,6 +121,8 @@ style: |
 
 **Derrick Bozkurt** · *Prompt Engineers*
 
+<span class="small">Follow along → [github.com/debozkurt/claude-intro](https://github.com/debozkurt/claude-intro)</span>
+
 ---
 
 ## Agenda
@@ -1130,9 +1132,9 @@ tools: WebSearch, WebFetch, Read, Grep, Glob
 
 ## Resources
 
-- **Docs:** docs.claude.com/claude-code
-- **GitHub:** github.com/anthropics/claude-code
-- **This lab:** `lab-app/` · `cheatsheets/` · `bonus-skills/`
+- **Docs:** [docs.claude.com/claude-code](https://docs.claude.com/claude-code)
+- **Claude Code repo:** [github.com/anthropics/claude-code](https://github.com/anthropics/claude-code)
+- **This talk + lab:** [github.com/debozkurt/claude-intro](https://github.com/debozkurt/claude-intro) — `lab-app/` · `cheatsheets/` · `bonus-skills/`
 
 ---
 
@@ -1154,6 +1156,7 @@ tools: WebSearch, WebFetch, Read, Grep, Glob
 
 ![w:220 h:220](assets/linkedin-qr.png)
 
-<span class="small">**LinkedIn:** linkedin.com/in/debozkurt
+<span class="small">**Repo:** [github.com/debozkurt/claude-intro](https://github.com/debozkurt/claude-intro)
+**LinkedIn:** linkedin.com/in/debozkurt
 **Prompt Engineers:** promptengineers.ai · meetup.com/plano-prompt-engineers
 **Email:** debozkurt@gmail.com</span>

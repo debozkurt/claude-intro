@@ -4,7 +4,9 @@
       "Skill(update-config)",
       "Bash(bash -c 'payload=$\\(cat\\); ts=$\\(/bin/date +%FT%T%z\\); echo \"[$ts] raw: $payload\" >> /tmp/tutor-hook.log; file=$\\(echo \"$payload\" | /opt/homebrew/bin/jq -r \".tool_input.file_path\"\\); echo \"[$ts] file=$file\" >> /tmp/tutor-hook.log; echo \"$file\" | /usr/bin/grep -q \"/\\\\.claude/skills/tutor/docs/\" && /usr/bin/osascript -e \"display notification \\\\\"Lesson saved\\\\\" with title \\\\\"/tutor\\\\\"\"')",
       "Bash(echo \"exit=$?\")",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(marp presentation.md --pdf --allow-local-files -o presentation.pdf)",
+      "Bash(marp presentation.md --html --allow-local-files -o presentation.html)"
     ]
   }
 }
