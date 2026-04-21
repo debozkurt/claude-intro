@@ -4,6 +4,8 @@ A 45-minute hands-on lab.
 
 > **Leave with:** Claude Code installed, a working mental model of its ecosystem, and a real skill (`/tutor`) dropped into your environment.
 
+**Repo:** <https://github.com/debozkurt/claude-intro>
+
 ---
 
 ## What's in this repo
@@ -19,11 +21,16 @@ claude-code-panel/
 ├── lab-app/                     # slim landing page + live-demo target
 │   ├── index.html               # the page itself (Claude-themed)
 │   ├── styles.css
-│   ├── CLAUDE.md                # project instructions Claude loads
+│   ├── CLAUDE.md                # project instructions Claude auto-loads at session start
 │   ├── README.md
+│   ├── docs/
+│   │   └── design-tokens.md     # @-referenced from CLAUDE.md — demo of scoped docs
 │   └── .claude/
-│       ├── settings.json        # checked-in permissions
-│       └── settings.local.json  # local-only overrides (gitignored in real projects)
+│       ├── settings.json        # checked-in permissions (allow / deny / ask patterns)
+│       ├── settings.local.json  # per-user overrides (normally gitignored; checked in here for the demo)
+│       └── rules/               # path-scoped, modular instructions — loaded on demand
+│           ├── no-build-tooling.md
+│           └── html-accessibility.md
 ├── cheatsheets/
 │   ├── commands.md              # CLI + slash commands reference
 │   └── permissions.md           # allow/deny/ask patterns
