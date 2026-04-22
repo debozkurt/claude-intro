@@ -38,10 +38,13 @@ claude-code-panel/
 │   ├── README.md                # index + dependency graph
 │   ├── 01-mental-model.md … 27-recipes.md
 │   └── appendix-{changelog,cheatsheets,glossary}.md
-└── bonus-skills/
-    ├── README.md                # install instructions for the take-home artifacts
-    ├── tutor/SKILL.md           # the skill walked through in §5 — take it home
-    └── tutor-researcher/        # the companion research subagent
+├── bonus-skills/
+│   ├── README.md                # install instructions for the take-home artifacts
+│   ├── tutor/SKILL.md           # the skill walked through in §5 — take it home
+│   └── tutor-researcher/        # the companion research subagent
+└── bonus-rules/
+    ├── README.md                # install instructions for richer .claude/rules/ examples
+    └── advisor-model.md         # advisor/executor orchestration pattern (credit: ryaneggz/open-harness)
 ```
 
 ---
