@@ -458,7 +458,7 @@ At session start, `@docs/design-tokens.md` is **expanded inline** — Claude see
 
 ## `.claude/rules/` — modular, scoped instructions
 
-A directory of topic-specific markdown files Claude auto-loads alongside `CLAUDE.md`. Two flavors — **always-on** and **path-scoped**. Real examples from our lab app:
+Topic-specific files Claude auto-loads alongside `CLAUDE.md` — **always-on** or **path-scoped**:
 
 ```
 lab-app/.claude/rules/
@@ -466,7 +466,7 @@ lab-app/.claude/rules/
 └── html-accessibility.md      # path-scoped — loads only on *.html
 ```
 
-**Path-scoped** — frontmatter gates when it loads:
+Frontmatter gates path-scoped rules:
 
 ```markdown
 ---
@@ -477,9 +477,9 @@ paths:
 Every <img> needs alt text. Use semantic tags. WCAG AA contrast...
 ```
 
-**▶ Try it:** ask Claude to `add a testimonials section to styles.css` — the HTML rule stays out of context. Ask it to `add a testimonials section to index.html` — the accessibility rule loads automatically.
+**▶ Try it:** ask Claude to edit `styles.css` — the HTML rule stays out of context. Ask it to edit `index.html` — the accessibility rule loads automatically.
 
-**Why it matters:** `CLAUDE.md` stays under 200 lines; specialized rules only pay for themselves when they're relevant. Also: `~/.claude/rules/` applies globally, and symlinking a shared rules dir across repos kills copy-paste drift.
+**Why it matters:** `CLAUDE.md` stays lean; specialized rules only load when relevant. Symlinking `~/.claude/rules/` across repos kills copy-paste drift.
 
 ---
 
@@ -576,24 +576,6 @@ Now `claude` picks this up every session. Ask it to ship a change — watch the 
 
 ---
 
-## Running modes vs permission modes
-
-Two distinct axes:
-
-**Running mode** — *how* you invoke Claude:
-- **Interactive** — `claude` launches the TUI.
-- **Headless** — `claude -p "task"` runs once, prints output, exits.
-
-**Permission mode** — *what* Claude is allowed to do without asking:
-- **Normal** (default) — asks before every tool call.
-- **Auto-accept edits** — approves `Read` / `Edit` / `Write`; still asks for `Bash` etc.
-- **Plan** — read-only; plans but doesn't edit or run state-changing commands.
-- **Bypass permissions** — skips every prompt. Sandbox only. (CLI flag; not in the cycle.)
-
-Cycle **Normal → Auto-accept edits → Plan** with `Shift+Tab` inside an interactive session. Details on each below.
-
----
-
 ## Essential slash commands
 
 | Command | What it does |
@@ -610,6 +592,24 @@ Cycle **Normal → Auto-accept edits → Plan** with `Shift+Tab` inside an inter
 | `/cost` | Session token + cost usage |
 
 Type `/` at any time to see the full list in your session.
+
+---
+
+## Running modes vs permission modes
+
+Two distinct axes:
+
+**Running mode** — *how* you invoke Claude:
+- **Interactive** — `claude` launches the TUI.
+- **Headless** — `claude -p "task"` runs once, prints output, exits.
+
+**Permission mode** — *what* Claude is allowed to do without asking:
+- **Normal** (default) — asks before every tool call.
+- **Auto-accept edits** — approves `Read` / `Edit` / `Write`; still asks for `Bash` etc.
+- **Plan** — read-only; plans but doesn't edit or run state-changing commands.
+- **Bypass permissions** — skips every prompt. Sandbox only. (CLI flag; not in the cycle.)
+
+Cycle **Normal → Auto-accept edits → Plan** with `Shift+Tab` inside an interactive session. Details on each below.
 
 ---
 
@@ -657,9 +657,10 @@ Three ways to navigate a conversation. Pick the right one:
 |---|---|
 | Closed the terminal; want to pick up where you left off | **Resume** — `claude --continue` (last session) or `claude --resume` (picker) |
 | Wrong last turn; want to retry from a checkpoint | **Rewind** — `Esc`-`Esc` inside the session, pick a turn |
-| Want to explore an alternative path without losing this one | **Fork** — new worktree + fresh `claude` session; original stays alive |
+| Want to try a different *conversation* path without losing this one | **`/branch`** — forks the transcript only; same dir, same branch, same files |
+| Want an isolated *codebase* copy to experiment in | **Worktree** — `git worktree add ../scratch -b exp`, then launch `claude` there (new dir → new session automatically) |
 
-**Why this matters:** conversations are cheap; discarding context is expensive. When Claude heads wrong, rewind and re-prompt. When you want to explore two paths, fork. Don't just `/clear`.
+**Why this matters:** conversations are cheap; discarding context is expensive. `/branch` when you want to retry the *chat*; worktree when you want to retry the *code*. Don't just `/clear`.
 
 ---
 

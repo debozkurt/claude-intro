@@ -5597,12 +5597,12 @@ section::after {
 }
 ;" data-marpit-pagination-total="64">
 <h2 id="clauderules--modular-scoped-instructions"><code>.claude/rules/</code> — modular, scoped instructions</h2>
-<p>A directory of topic-specific markdown files Claude auto-loads alongside <code>CLAUDE.md</code>. Two flavors — <strong>always-on</strong> and <strong>path-scoped</strong>. Real examples from our lab app:</p>
+<p>Topic-specific files Claude auto-loads alongside <code>CLAUDE.md</code> — <strong>always-on</strong> or <strong>path-scoped</strong>:</p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code>lab-app/.claude/rules/
 ├── no-build-tooling.md        # always-on — no frontmatter
 └── html-accessibility.md      # path-scoped — loads only on *.html
 </code></pre>
-<p><strong>Path-scoped</strong> — frontmatter gates when it loads:</p>
+<p>Frontmatter gates path-scoped rules:</p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-markdown">---
 paths:
 <span class="hljs-section">  - &quot;<span class="hljs-strong">**/<span class="hljs-emphasis">*.html&quot;
@@ -5610,8 +5610,8 @@ paths:
 # HTML accessibility
 Every <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span>&gt;</span></span> needs alt text. Use semantic tags. WCAG AA contrast...
 </span></span></span></code></pre>
-<p><strong><img class="emoji" draggable="false" alt="▶" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/25b6.svg" data-marp-twemoji=""/> Try it:</strong> ask Claude to <code>add a testimonials section to styles.css</code> — the HTML rule stays out of context. Ask it to <code>add a testimonials section to index.html</code> — the accessibility rule loads automatically.</p>
-<p><strong>Why it matters:</strong> <code>CLAUDE.md</code> stays under 200 lines; specialized rules only pay for themselves when they're relevant. Also: <code>~/.claude/rules/</code> applies globally, and symlinking a shared rules dir across repos kills copy-paste drift.</p>
+<p><strong><img class="emoji" draggable="false" alt="▶" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/25b6.svg" data-marp-twemoji=""/> Try it:</strong> ask Claude to edit <code>styles.css</code> — the HTML rule stays out of context. Ask it to edit <code>index.html</code> — the accessibility rule loads automatically.</p>
+<p><strong>Why it matters:</strong> <code>CLAUDE.md</code> stays lean; specialized rules only load when relevant. Symlinking <code>~/.claude/rules/</code> across repos kills copy-paste drift.</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="25" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -7011,21 +7011,58 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="64">
-<h2 id="running-modes-vs-permission-modes">Running modes vs permission modes</h2>
-<p>Two distinct axes:</p>
-<p><strong>Running mode</strong> — <em>how</em> you invoke Claude:</p>
-<ul>
-<li><strong>Interactive</strong> — <code>claude</code> launches the TUI.</li>
-<li><strong>Headless</strong> — <code>claude -p &quot;task&quot;</code> runs once, prints output, exits.</li>
-</ul>
-<p><strong>Permission mode</strong> — <em>what</em> Claude is allowed to do without asking:</p>
-<ul>
-<li><strong>Normal</strong> (default) — asks before every tool call.</li>
-<li><strong>Auto-accept edits</strong> — approves <code>Read</code> / <code>Edit</code> / <code>Write</code>; still asks for <code>Bash</code> etc.</li>
-<li><strong>Plan</strong> — read-only; plans but doesn't edit or run state-changing commands.</li>
-<li><strong>Bypass permissions</strong> — skips every prompt. Sandbox only. (CLI flag; not in the cycle.)</li>
-</ul>
-<p>Cycle <strong>Normal → Auto-accept edits → Plan</strong> with <code>Shift+Tab</code> inside an interactive session. Details on each below.</p>
+<h2 id="essential-slash-commands">Essential slash commands</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/help</code></td>
+<td>Lists every slash command</td>
+</tr>
+<tr>
+<td><code>/login</code> / <code>/logout</code></td>
+<td>Auth</td>
+</tr>
+<tr>
+<td><code>/model</code></td>
+<td>Switch model (Opus <img class="emoji" draggable="false" alt="↔" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/2194.svg" data-marp-twemoji=""/> Sonnet <img class="emoji" draggable="false" alt="↔" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/2194.svg" data-marp-twemoji=""/> Haiku)</td>
+</tr>
+<tr>
+<td><code>/memory</code></td>
+<td>Browse / edit loaded CLAUDE.md + auto-memory files</td>
+</tr>
+<tr>
+<td><code>/permissions</code></td>
+<td>Manage allow / deny / ask rules</td>
+</tr>
+<tr>
+<td><code>/compact</code> / <code>/clear</code></td>
+<td>Context management</td>
+</tr>
+<tr>
+<td><code>/agents</code></td>
+<td>Manage subagents</td>
+</tr>
+<tr>
+<td><code>/hooks</code></td>
+<td>Manage hooks</td>
+</tr>
+<tr>
+<td><code>/config</code></td>
+<td>Open settings</td>
+</tr>
+<tr>
+<td><code>/cost</code></td>
+<td>Session token + cost usage</td>
+</tr>
+</tbody>
+</table>
+<p>Type <code>/</code> at any time to see the full list in your session.</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="31" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -7244,58 +7281,21 @@ section::after {
   color: #8a857d;
 }
 ;" data-marpit-pagination-total="64">
-<h2 id="essential-slash-commands">Essential slash commands</h2>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>What it does</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/help</code></td>
-<td>Lists every slash command</td>
-</tr>
-<tr>
-<td><code>/login</code> / <code>/logout</code></td>
-<td>Auth</td>
-</tr>
-<tr>
-<td><code>/model</code></td>
-<td>Switch model (Opus <img class="emoji" draggable="false" alt="↔" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/2194.svg" data-marp-twemoji=""/> Sonnet <img class="emoji" draggable="false" alt="↔" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.2/assets/svg/2194.svg" data-marp-twemoji=""/> Haiku)</td>
-</tr>
-<tr>
-<td><code>/memory</code></td>
-<td>Browse / edit loaded CLAUDE.md + auto-memory files</td>
-</tr>
-<tr>
-<td><code>/permissions</code></td>
-<td>Manage allow / deny / ask rules</td>
-</tr>
-<tr>
-<td><code>/compact</code> / <code>/clear</code></td>
-<td>Context management</td>
-</tr>
-<tr>
-<td><code>/agents</code></td>
-<td>Manage subagents</td>
-</tr>
-<tr>
-<td><code>/hooks</code></td>
-<td>Manage hooks</td>
-</tr>
-<tr>
-<td><code>/config</code></td>
-<td>Open settings</td>
-</tr>
-<tr>
-<td><code>/cost</code></td>
-<td>Session token + cost usage</td>
-</tr>
-</tbody>
-</table>
-<p>Type <code>/</code> at any time to see the full list in your session.</p>
+<h2 id="running-modes-vs-permission-modes">Running modes vs permission modes</h2>
+<p>Two distinct axes:</p>
+<p><strong>Running mode</strong> — <em>how</em> you invoke Claude:</p>
+<ul>
+<li><strong>Interactive</strong> — <code>claude</code> launches the TUI.</li>
+<li><strong>Headless</strong> — <code>claude -p &quot;task&quot;</code> runs once, prints output, exits.</li>
+</ul>
+<p><strong>Permission mode</strong> — <em>what</em> Claude is allowed to do without asking:</p>
+<ul>
+<li><strong>Normal</strong> (default) — asks before every tool call.</li>
+<li><strong>Auto-accept edits</strong> — approves <code>Read</code> / <code>Edit</code> / <code>Write</code>; still asks for <code>Bash</code> etc.</li>
+<li><strong>Plan</strong> — read-only; plans but doesn't edit or run state-changing commands.</li>
+<li><strong>Bypass permissions</strong> — skips every prompt. Sandbox only. (CLI flag; not in the cycle.)</li>
+</ul>
+<p>Cycle <strong>Normal → Auto-accept edits → Plan</strong> with <code>Shift+Tab</code> inside an interactive session. Details on each below.</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="32" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
@@ -7993,12 +7993,16 @@ section::after {
 <td><strong>Rewind</strong> — <code>Esc</code>-<code>Esc</code> inside the session, pick a turn</td>
 </tr>
 <tr>
-<td>Want to explore an alternative path without losing this one</td>
-<td><strong>Fork</strong> — new worktree + fresh <code>claude</code> session; original stays alive</td>
+<td>Want to try a different <em>conversation</em> path without losing this one</td>
+<td><strong><code>/branch</code></strong> — forks the transcript only; same dir, same branch, same files</td>
+</tr>
+<tr>
+<td>Want an isolated <em>codebase</em> copy to experiment in</td>
+<td><strong>Worktree</strong> — <code>git worktree add ../scratch -b exp</code>, then launch <code>claude</code> there (new dir → new session automatically)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Why this matters:</strong> conversations are cheap; discarding context is expensive. When Claude heads wrong, rewind and re-prompt. When you want to explore two paths, fork. Don't just <code>/clear</code>.</p>
+<p><strong>Why this matters:</strong> conversations are cheap; discarding context is expensive. <code>/branch</code> when you want to retry the <em>chat</em>; worktree when you want to retry the <em>code</em>. Don't just <code>/clear</code>.</p>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="35" data-paginate="true" data-theme="gaia" data-style="/* Claude-flavored modern dark theme
    Palette: warm near-black bg, off-white body, coral accent */
