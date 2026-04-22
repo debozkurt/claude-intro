@@ -119,7 +119,7 @@ style: |
 
 <span class="small">A Hands-On Primer</span>
 
-**Derrick Bozkurt** · *Prompt Engineers*
+**Derrick Bozkurt** · _Prompt Engineers_
 
 <span class="small">Follow along → [github.com/debozkurt/claude-intro](https://github.com/debozkurt/claude-intro)</span>
 
@@ -127,15 +127,15 @@ style: |
 
 ## Agenda
 
-| # | Section |
-|---|---|
-| 0 | Mental model — what Claude Code *is* |
-| 1 | Install & first run |
-| 2 | Ecosystem & structure |
-| 3 | Core usage & control |
-| 4 | Extensibility primitives |
-| 5 | Live build walkthrough |
-| 6 | Q&A, links, take-home |
+| #   | Section                              |
+| --- | ------------------------------------ |
+| 0   | Mental model — what Claude Code _is_ |
+| 1   | Install & first run                  |
+| 2   | Ecosystem & structure                |
+| 3   | Core usage & control                 |
+| 4   | Extensibility primitives             |
+| 5   | Live build walkthrough               |
+| 6   | Q&A, links, take-home                |
 
 ---
 
@@ -150,6 +150,7 @@ style: |
 An **agentic coding CLI**. Lives in your terminal, reads/edits files in your codebase, runs shell commands, completes multi-step tasks — not just autocomplete or chat.
 
 **Landscape around it:**
+
 - **GitHub Copilot** — editor-native autocomplete; now has an agent mode too.
 - **Cursor / Windsurf** — IDE-native agents. Editor is the home; multi-file chat + edits baked in.
 - **OpenAI Codex CLI** — closest peer to Claude Code. Terminal-native agent, different model family.
@@ -163,8 +164,8 @@ An **agentic coding CLI**. Lives in your terminal, reads/edits files in your cod
 
 Because it has **file + shell access**, you can describe outcomes, not implementations:
 
-- ❌ Copilot-brain: *"Write a function that..."*
-- ✅ Claude Code: *"Add pagination to the user list endpoint. Check how other endpoints do it first."*
+- ❌ Copilot-brain: _"Write a function that..."_
+- ✅ Claude Code: _"Add pagination to the user list endpoint. Check how other endpoints do it first."_
 
 It'll `Read` similar files, follow your patterns, edit, and (if permitted) run tests.
 
@@ -183,6 +184,7 @@ It'll `Read` similar files, follow your patterns, edit, and (if permitted) run t
 **Following along live?** Install Claude Code and log in **before** we start — takes ~5 min (next slide).
 
 What you need:
+
 - **git** (`git --version`)
 - **macOS, Linux, or Windows + WSL**
 - A Claude account (claude.com) or an `ANTHROPIC_API_KEY`
@@ -254,17 +256,17 @@ claude
 
 ## Starting Claude — the flags you'll actually use
 
-| Flag | What it does |
-|---|---|
-| `claude` | Interactive TUI in current dir |
-| `claude -p "task"` | Headless — one-shot, prints to stdout, exits |
-| `claude --continue` (`-c`) | Resume most recent session in this dir |
-| `claude --resume` | Pick a session from recent history |
-| `claude --model <name>` | Start with `opus` / `sonnet` / `haiku` |
-| `claude --permission-mode <mode>` | Start in `plan` / `acceptEdits` / `default` |
-| `claude --add-dir <path>` | Include another dir in working scope |
-| `claude --dangerously-skip-permissions` | Bypass ALL prompts — sandbox only |
-| `claude --version` | Print version |
+| Flag                                    | What it does                                 |
+| --------------------------------------- | -------------------------------------------- |
+| `claude`                                | Interactive TUI in current dir               |
+| `claude -p "task"`                      | Headless — one-shot, prints to stdout, exits |
+| `claude --continue` (`-c`)              | Resume most recent session in this dir       |
+| `claude --resume`                       | Pick a session from recent history           |
+| `claude --model <name>`                 | Start with `opus` / `sonnet` / `haiku`       |
+| `claude --permission-mode <mode>`       | Start in `plan` / `acceptEdits` / `default`  |
+| `claude --add-dir <path>`               | Include another dir in working scope         |
+| `claude --dangerously-skip-permissions` | Bypass ALL prompts — sandbox only            |
+| `claude --version`                      | Print version                                |
 
 Full reference (plus keyboard shortcuts) in `cheatsheets/commands.md`.
 
@@ -272,14 +274,14 @@ Full reference (plus keyboard shortcuts) in `cheatsheets/commands.md`.
 
 ## Our demo target — `lab-app/`
 
-A slim Claude-themed landing page for *this* session lives in the repo at `lab-app/`:
+A slim Claude-themed landing page for _this_ session lives in the repo at `lab-app/`:
 
 - Plain HTML + CSS — no build step
 - Has a real `CLAUDE.md` with conventions and guardrails
 - Has a pre-configured `.claude/settings.json`
 - Small enough that edits are visible instantly
 
-Throughout the talk, **▶ DEMO** callouts mean: *we'll run this live against `lab-app/`.* Follow along if you've cloned the repo, or just watch.
+Throughout the talk, **▶ DEMO** callouts mean: _we'll run this live against `lab-app/`._ Follow along if you've cloned the repo, or just watch.
 
 ```bash
 cp -r lab-app ~/scratch/claude-lab
@@ -301,10 +303,10 @@ claude
 
 Claude Code reads config from two places, merged at session start:
 
-| Location | Scope | Commit? |
-|---|---|---|
-| `~/.claude/` | **Global** — applies to every project you run | **Yes** — in a personal dotfiles repo |
-| `<repo>/.claude/` | **Project** — this repo only | **Yes** — in the project repo |
+| Location          | Scope                                         | Commit?                               |
+| ----------------- | --------------------------------------------- | ------------------------------------- |
+| `~/.claude/`      | **Global** — applies to every project you run | **Yes** — in a personal dotfiles repo |
+| `<repo>/.claude/` | **Project** — this repo only                  | **Yes** — in the project repo         |
 
 Plus: `<repo>/.claude/settings.local.json` = your personal overrides for this project (gitignored).
 
@@ -361,12 +363,12 @@ Think of it like `~/.ssh/` or `~/.gitconfig` — your personal Claude Code profi
 
 **Committed** — you author these, safe to share in dotfiles:
 
-| Dir | What lives here |
-|---|---|
-| `skills/` | Skills (SKILL.md + resources) invoked by `/name` |
-| `agents/` | Subagent definitions (prompt + tool allowlist) |
-| `commands/` | Custom `/slash-commands` |
-| `plugins/` | Installed plugins (skills/agents/commands bundled) |
+| Dir         | What lives here                                    |
+| ----------- | -------------------------------------------------- |
+| `skills/`   | Skills (SKILL.md + resources) invoked by `/name`   |
+| `agents/`   | Subagent definitions (prompt + tool allowlist)     |
+| `commands/` | Custom `/slash-commands`                           |
+| `plugins/`  | Installed plugins (skills/agents/commands bundled) |
 
 Plus `CLAUDE.md`, `settings.json`, `keybindings.json` at the root.
 
@@ -376,14 +378,14 @@ Plus `CLAUDE.md`, `settings.json`, `keybindings.json` at the root.
 
 **Gitignored** — Claude writes these as you work:
 
-| Dir | What lives here |
-|---|---|
-| `projects/` | Per-project session transcripts **+ `memory/` files** |
-| `plans/` | Saved plan-mode outputs |
-| `todos/` | In-session task lists |
-| `paste-cache/` | Images/large text pasted into the TUI |
-| `shell-snapshots/`, `session-env/` | Captured shell state per session |
-| `file-history/` | Pre-edit snapshots (powers `/rewind`) |
+| Dir                                | What lives here                                       |
+| ---------------------------------- | ----------------------------------------------------- |
+| `projects/`                        | Per-project session transcripts **+ `memory/` files** |
+| `plans/`                           | Saved plan-mode outputs                               |
+| `todos/`                           | In-session task lists                                 |
+| `paste-cache/`                     | Images/large text pasted into the TUI                 |
+| `shell-snapshots/`, `session-env/` | Captured shell state per session                      |
+| `file-history/`                    | Pre-edit snapshots (powers `/rewind`)                 |
 
 **Why it matters:** `projects/<slug>/memory/` is where auto-memory persists. Back it up, grep it, or wipe a slug to reset what Claude "knows" about a repo.
 
@@ -410,13 +412,13 @@ your-repo/
 
 Claude walks up from your working directory and loads every `CLAUDE.md` it finds. **All concatenated** — more specific wins by being loaded later.
 
-| Scope | Location | Who it's for |
-|---|---|---|
-| **User** | `~/.claude/CLAUDE.md` | Your preferences, all projects |
-| **Project** | `./CLAUDE.md` or `./.claude/CLAUDE.md` | Team, committed |
-| **Subfolder** | `<repo>/sub/CLAUDE.md` | Loaded on-demand when Claude touches that dir |
+| Scope         | Location                               | Who it's for                                  |
+| ------------- | -------------------------------------- | --------------------------------------------- |
+| **User**      | `~/.claude/CLAUDE.md`                  | Your preferences, all projects                |
+| **Project**   | `./CLAUDE.md` or `./.claude/CLAUDE.md` | Team, committed                               |
+| **Subfolder** | `<repo>/sub/CLAUDE.md`                 | Loaded on-demand when Claude touches that dir |
 
-**Why it matters:** global *preferences* (your style) at user level. Project *facts* (stack, conventions) at project level. *Hyper-local rules* (one folder uses a different lint config) at subfolder level. Claude stitches them together for you.
+**Why it matters:** global _preferences_ (your style) at user level. Project _facts_ (stack, conventions) at project level. _Hyper-local rules_ (one folder uses a different lint config) at subfolder level. Claude stitches them together for you.
 
 ---
 
@@ -452,7 +454,7 @@ At session start, `@docs/design-tokens.md` is **expanded inline** — Claude see
 
 **▶ Try it:** ask Claude `what's the accent color?` — it answers `#d97757` with zero tool calls, because the token doc was pre-loaded via the import.
 
-**Why it matters:** CLAUDE.md becomes a *table of contents*, not a re-documentation. Keep it short; hoist the rest via `@path`. Designers can edit `design-tokens.md` without touching Claude config.
+**Why it matters:** CLAUDE.md becomes a _table of contents_, not a re-documentation. Keep it short; hoist the rest via `@path`. Designers can edit `design-tokens.md` without touching Claude config.
 
 ---
 
@@ -473,7 +475,9 @@ Frontmatter gates path-scoped rules:
 paths:
   - "**/*.html"
 ---
+
 # HTML accessibility
+
 Every <img> needs alt text. Use semantic tags. WCAG AA contrast...
 ```
 
@@ -522,17 +526,18 @@ Turn off with `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` or `{"autoMemoryEnabled": fals
 
 **When to reach for what:**
 
-| Want to... | Use |
-|---|---|
-| Give Claude a *rule* you'll enforce | Write it into `CLAUDE.md` |
-| Scope a rule to specific files | A path-scoped rule in `.claude/rules/` |
-| Let Claude remember *without* you writing | Auto memory (on by default) |
-| Pull in an existing doc as context | `@path` import |
-| Review/edit what's loaded this session | `/memory` |
-| Compress a long session | `/compact` |
-| Wipe this session, keep CLAUDE.md | `/clear` |
+| Want to...                                | Use                                    |
+| ----------------------------------------- | -------------------------------------- |
+| Give Claude a _rule_ you'll enforce       | Write it into `CLAUDE.md`              |
+| Scope a rule to specific files            | A path-scoped rule in `.claude/rules/` |
+| Let Claude remember _without_ you writing | Auto memory (on by default)            |
+| Pull in an existing doc as context        | `@path` import                         |
+| Review/edit what's loaded this session    | `/memory`                              |
+| Compress a long session                   | `/compact`                             |
+| Wipe this session, keep CLAUDE.md         | `/clear`                               |
 
 **Rules of thumb:**
+
 - CLAUDE.md under **200 lines** — split into rules or imports beyond that.
 - Run `/memory` periodically to audit what Claude has learned about you.
 - If `/compact` is losing key instructions, move them into CLAUDE.md instead of re-typing.
@@ -541,22 +546,25 @@ Turn off with `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` or `{"autoMemoryEnabled": fals
 
 ## ▶ Try it — write your first CLAUDE.md
 
-Drop this into any repo. Focus on *context Claude can't infer* and *rules that prevent mistakes*:
+Drop this into any repo. Focus on _context Claude can't infer_ and _rules that prevent mistakes_:
 
 ```markdown
 # Project: <your-project>
 
 ## Context
+
 - What this project does, in one paragraph.
 - Who the users are and the primary flow.
 - Any non-obvious architectural decisions.
 
 ## Conventions
+
 - How tests are organized and how to run them.
 - Naming / style rules your team actually enforces.
 - What "done" looks like for a change in this repo.
 
 ## Guardrails
+
 - Directories NOT to modify (legacy, generated, third-party).
 - Dependencies NOT to add without discussion.
 - Destructive operations that require human approval first.
@@ -564,7 +572,7 @@ Drop this into any repo. Focus on *context Claude can't infer* and *rules that p
 
 Now `claude` picks this up every session. Ask it to ship a change — watch the guardrails hold without re-telling.
 
-**▶ DEMO** · Open `lab-app/CLAUDE.md` — same pattern. Then ask Claude: *"What does this project do and what should I avoid changing?"* Watch it recite from CLAUDE.md without being told.
+**▶ DEMO** · Open `lab-app/CLAUDE.md` — same pattern. Then ask Claude: _"What does this project do and what should I avoid changing?"_ Watch it recite from CLAUDE.md without being told.
 
 ---
 
@@ -578,18 +586,18 @@ Now `claude` picks this up every session. Ask it to ship a change — watch the 
 
 ## Essential slash commands
 
-| Command | What it does |
-|---|---|
-| `/help` | Lists every slash command |
-| `/login` / `/logout` | Auth |
-| `/model` | Switch model (Opus ↔ Sonnet ↔ Haiku) |
-| `/memory` | Browse / edit loaded CLAUDE.md + auto-memory files |
-| `/permissions` | Manage allow / deny / ask rules |
-| `/compact` / `/clear` | Context management |
-| `/agents` | Manage subagents |
-| `/hooks` | Manage hooks |
-| `/config` | Open settings |
-| `/cost` | Session token + cost usage |
+| Command               | What it does                                       |
+| --------------------- | -------------------------------------------------- |
+| `/help`               | Lists every slash command                          |
+| `/login` / `/logout`  | Auth                                               |
+| `/model`              | Switch model (Opus ↔ Sonnet ↔ Haiku)               |
+| `/memory`             | Browse / edit loaded CLAUDE.md + auto-memory files |
+| `/permissions`        | Manage allow / deny / ask rules                    |
+| `/compact` / `/clear` | Context management                                 |
+| `/agents`             | Manage subagents                                   |
+| `/hooks`              | Manage hooks                                       |
+| `/config`             | Open settings                                      |
+| `/cost`               | Session token + cost usage                         |
 
 Type `/` at any time to see the full list in your session.
 
@@ -599,11 +607,13 @@ Type `/` at any time to see the full list in your session.
 
 Two distinct axes:
 
-**Running mode** — *how* you invoke Claude:
+**Running mode** — _how_ you invoke Claude:
+
 - **Interactive** — `claude` launches the TUI.
 - **Headless** — `claude -p "task"` runs once, prints output, exits.
 
-**Permission mode** — *what* Claude is allowed to do without asking:
+**Permission mode** — _what_ Claude is allowed to do without asking:
+
 - **Normal** (default) — asks before every tool call.
 - **Auto-accept edits** — approves `Read` / `Edit` / `Write`; still asks for `Bash` etc.
 - **Plan** — read-only; plans but doesn't edit or run state-changing commands.
@@ -621,13 +631,14 @@ Cycle **Normal → Auto-accept edits → Plan** with `Shift+Tab` inside an inter
 ```
 
 Claude:
+
 1. Reads the relevant files (auth.js, routes, tests)
 2. Produces a written plan — files to touch, order, risks
 3. **Does not edit** until you approve
 
 **Why it matters:** plan mode is your dry-run. Non-trivial changes should start here — catches misunderstandings before Claude writes 200 lines in the wrong place.
 
-**▶ DEMO** · In `lab-app/`, `Shift+Tab` to plan, then: *"Add a 'Session agenda' section to `index.html` between Audience and Prereqs — 6 rows (time · topic) matching the slide-deck agenda. Use the existing `<section>` + `<h2>` pattern and the coral palette."* Watch the plan appear — cross-reading CLAUDE.md + `styles.css` — before a line is written.
+**▶ DEMO** · In `lab-app/`, `Shift+Tab` to plan, then: _"Add a 'Session agenda' section to `index.html` between Audience and Prereqs — 6 rows (time · topic) matching the slide-deck agenda. Use the existing `<section>` + `<h2>` pattern and the coral palette."_ Watch the plan appear — cross-reading CLAUDE.md + `styles.css` — before a line is written.
 
 ---
 
@@ -640,10 +651,11 @@ claude -p "does this repo have a CI config? which CI?" | grep -i yes
 ```
 
 **Use cases:**
+
 - Scripts and automation · CI pipelines · piping into Unix tools (`| jq`, `| grep`)
 - **Scheduled / remote execution** — cron jobs, remote triggers, Slack/GitHub webhooks firing Claude
 
-**Why it matters:** headless is the foundation for **remote control** — running Claude without a human at the terminal. *Remote agents and scheduling could fill their own meetup — scope for next time.*
+**Why it matters:** headless is the foundation for **remote control** — running Claude without a human at the terminal. _Remote agents and scheduling could fill their own meetup — scope for next time._
 
 **▶ DEMO** · In a second terminal: `claude -p "list every section heading in lab-app/index.html"`. No TUI, just stdout. Then pipe it: `... | wc -l`.
 
@@ -653,14 +665,14 @@ claude -p "does this repo have a CI config? which CI?" | grep -i yes
 
 Three ways to navigate a conversation. Pick the right one:
 
-| Problem | Tool |
-|---|---|
-| Closed the terminal; want to pick up where you left off | **Resume** — `claude --continue` (last session) or `claude --resume` (picker) |
-| Wrong last turn; want to retry from a checkpoint | **Rewind** — `Esc`-`Esc` inside the session, pick a turn |
-| Want to try a different *conversation* path without losing this one | **`/branch`** — forks the transcript only; same dir, same branch, same files |
-| Want an isolated *codebase* copy to experiment in | **Worktree** — `git worktree add ../scratch -b exp`, then launch `claude` there (new dir → new session automatically) |
+| Problem                                                             | Tool                                                                                                                  |
+| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Closed the terminal; want to pick up where you left off             | **Resume** — `claude --continue` (last session) or `claude --resume` (picker)                                         |
+| Wrong last turn; want to retry from a checkpoint                    | **Rewind** — `Esc`-`Esc` inside the session, pick a turn                                                              |
+| Want to try a different _conversation_ path without losing this one | **`/branch`** — forks the transcript only; same dir, same branch, same files                                          |
+| Want an isolated _codebase_ copy to experiment in                   | **Worktree** — `git worktree add ../scratch -b exp`, then launch `claude` there (new dir → new session automatically) |
 
-**Why this matters:** conversations are cheap; discarding context is expensive. `/branch` when you want to retry the *chat*; worktree when you want to retry the *code*. Don't just `/clear`.
+**Why this matters:** conversations are cheap; discarding context is expensive. `/branch` when you want to retry the _chat_; worktree when you want to retry the _code_. Don't just `/clear`.
 
 ---
 
@@ -674,23 +686,24 @@ Long sessions fill the context window. Two tools:
 ```
 
 **Rules of thumb:**
+
 - `/compact` when the response starts feeling slow or forgetful
 - `/clear` when you switch tasks entirely
 - Starting fresh beats fighting a stale context
 
-**Why it matters:** the model weighs *all* in-context tokens. A 50-turn conversation about three unrelated things confuses it. Compact or clear deliberately.
+**Why it matters:** the model weighs _all_ in-context tokens. A 50-turn conversation about three unrelated things confuses it. Compact or clear deliberately.
 
 ---
 
 ## Worktrees — what they actually are
 
-A **separate working directory** attached to the same `.git` repo, with its own branch checked out — *not* just another branch.
+A **separate working directory** attached to the same `.git` repo, with its own branch checked out — _not_ just another branch.
 
-| Normal branch switch | Worktree |
-|---|---|
-| `git checkout` modifies your *current* dir | `git worktree add` creates a *new* dir |
-| One branch "live" at a time | Multiple branches live in parallel |
-| One working tree | Independent trees, shared `.git` |
+| Normal branch switch                       | Worktree                               |
+| ------------------------------------------ | -------------------------------------- |
+| `git checkout` modifies your _current_ dir | `git worktree add` creates a _new_ dir |
+| One branch "live" at a time                | Multiple branches live in parallel     |
+| One working tree                           | Independent trees, shared `.git`       |
 
 ```bash
 git worktree add ../feat-auth feature/auth   # create
@@ -705,7 +718,7 @@ git worktree remove ../feat-auth             # delete
 **A git repo stores many versions of your project (branches).**
 Normally, your project folder only shows **one branch at a time** — switching branches swaps which files you see.
 
-**A worktree is an extra folder showing a *different* branch** — so multiple branches are "visible" on your computer at the same time.
+**A worktree is an extra folder showing a _different_ branch** — so multiple branches are "visible" on your computer at the same time.
 
 ```
 WITHOUT WORKTREES                  WITH WORKTREES
@@ -730,6 +743,7 @@ WITHOUT WORKTREES                  WITH WORKTREES
 Claude Code stores session state **per directory** (`~/.claude/projects/<path-slug>`). Different worktrees → automatically different, isolated Claude sessions.
 
 **What this unlocks:**
+
 - **True parallel Claude** — two sessions, two worktrees, zero file collisions
 - **Per-worktree permission modes** — one on bypass, one on normal; no cross-contamination
 - **Safe sandbox** — let Claude go wild in a throwaway worktree; `git worktree remove` wipes the blast radius
@@ -749,14 +763,15 @@ git worktree remove ../feat-auth           # clean up
 
 Drop these keywords into any prompt to expand the reasoning budget:
 
-| Keyword | Relative effort |
-|---|---|
-| `think` | small bump |
-| `think hard` | larger |
-| `think harder` / `megathink` | larger still |
-| **`ultrathink`** | maximum |
+| Keyword                      | Relative effort |
+| ---------------------------- | --------------- |
+| `think`                      | small bump      |
+| `think hard`                 | larger          |
+| `think harder` / `megathink` | larger still    |
+| **`ultrathink`**             | maximum         |
 
 Example:
+
 ```
 ultrathink — our webhook deliveries are dropping ~2% at peak load.
 Here's the queue code [@src/queue.ts]. What's the most likely root cause?
@@ -783,14 +798,14 @@ Ask me to choose between them with AskUserQuestion before proceeding.
 
 The UI label (what you see in Claude) and the config name (what you write in `settings.json` / `--permission-mode`) are different. Both exist:
 
-| UI label | Config name | Behavior |
-|---|---|---|
-| **Normal** | `default` | Ask before each tool call |
-| **Auto-accept edits** | `acceptEdits` | Auto-approve `Read` / `Edit` / `Write`; still ask for `Bash` etc. |
-| **Plan** | `plan` | Read-only — plans but doesn't edit or run state-changing commands |
-| **Bypass permissions** | `bypassPermissions` | Skip *every* prompt — sandbox only |
+| UI label               | Config name         | Behavior                                                          |
+| ---------------------- | ------------------- | ----------------------------------------------------------------- |
+| **Normal**             | `default`           | Ask before each tool call                                         |
+| **Auto-accept edits**  | `acceptEdits`       | Auto-approve `Read` / `Edit` / `Write`; still ask for `Bash` etc. |
+| **Plan**               | `plan`              | Read-only — plans but doesn't edit or run state-changing commands |
+| **Bypass permissions** | `bypassPermissions` | Skip _every_ prompt — sandbox only                                |
 
-`Shift+Tab` cycles the first three. Bypass is only via the flag: `--dangerously-skip-permissions`. Auto-accept applies *inside* turns — you submit a prompt, Claude's edits land without asking.
+`Shift+Tab` cycles the first three. Bypass is only via the flag: `--dangerously-skip-permissions`. Auto-accept applies _inside_ turns — you submit a prompt, Claude's edits land without asking.
 
 ---
 
@@ -800,8 +815,8 @@ The UI label (what you see in Claude) and the config name (what you write in `se
 {
   "permissions": {
     "allow": ["Read", "Edit", "Bash(npm test:*)", "Bash(git status:*)"],
-    "deny":  ["Bash(rm -rf*)", "Bash(curl:*)", "Bash(sudo:*)"],
-    "ask":   ["Bash(git commit:*)", "Bash(git push:*)"]
+    "deny": ["Bash(rm -rf*)", "Bash(curl:*)", "Bash(sudo:*)"],
+    "ask": ["Bash(git commit:*)", "Bash(git push:*)"]
   }
 }
 ```
@@ -855,16 +870,17 @@ Approves **every** tool call without asking. Fast, dangerous.
 
 ## The decision matrix
 
-| You want... | Reach for |
-|---|---|
-| A reusable prompt/procedure invoked on demand (`/my-thing`) | **Skill** |
-| An isolated sub-Claude with focused tools & context | **Subagent** |
-| Automatic behavior on an event (pre/post tool use, session start) | **Hook** |
+| You want...                                                       | Reach for    |
+| ----------------------------------------------------------------- | ------------ |
+| A reusable prompt/procedure invoked on demand (`/my-thing`)       | **Skill**    |
+| An isolated sub-Claude with focused tools & context               | **Subagent** |
+| Automatic behavior on an event (pre/post tool use, session start) | **Hook**     |
 
 **Rule of thumb:**
-- Skill = *you* trigger it, deterministic procedure
-- Subagent = *Claude* delegates to it, specialized work with its own context budget
-- Hook = *the system* runs it, no model involved
+
+- Skill = _you_ trigger it, deterministic procedure
+- Subagent = _Claude_ delegates to it, specialized work with its own context budget
+- Hook = _the system_ runs it, no model involved
 
 ---
 
@@ -874,11 +890,11 @@ Approves **every** tool call without asking. Fast, dangerous.
 
 ```markdown
 ---
-name: <slug>              # becomes the /slash-command
-description: <one line>   # tells Claude when to use + user what it does
-user-invocable: true      # appears in /slash menu
-allowed-tools: <list>     # tight tool budget (least privilege)
-argument-hint: "[args]"   # placeholder shown to user
+name: <slug> # becomes the /slash-command
+description: <one line> # tells Claude when to use + user what it does
+user-invocable: true # appears in /slash menu
+allowed-tools: <list> # tight tool budget (least privilege)
+argument-hint: "[args]" # placeholder shown to user
 ---
 
 # Skill title
@@ -900,9 +916,9 @@ Invoke: `/<name>`. Also auto-suggested when the user's prompt matches `descripti
 
 ```markdown
 ---
-name: <slug>              # the subagent identity
-description: <one line>   # when the parent Claude should delegate to this
-tools: <list>             # tool budget — often tighter than main Claude
+name: <slug> # the subagent identity
+description: <one line> # when the parent Claude should delegate to this
+tools: <list> # tool budget — often tighter than main Claude
 ---
 
 <system prompt for this subagent>
@@ -923,10 +939,12 @@ Configured in `settings.json` — shell commands fired on events. No model invol
 ```json
 {
   "hooks": {
-    "<EventName>": [{
-      "matcher": "<tool-or-pattern>",
-      "hooks": [{ "type": "command", "command": "<shell>" }]
-    }]
+    "<EventName>": [
+      {
+        "matcher": "<tool-or-pattern>",
+        "hooks": [{ "type": "command", "command": "<shell>" }]
+      }
+    ]
   }
 }
 ```
@@ -958,7 +976,7 @@ Live in `lab-app/.claude/settings.json`:
 
 **How it fires:** before every `Bash` call, Claude Code pipes a JSON payload to the hook's stdin. `if:` pre-filters by permission-rule pattern — non-matching commands skip the hook entirely. On match, the command prints stdout JSON with `permissionDecision: "deny"`; Claude Code surfaces the `permissionDecisionReason` as a red error block in the transcript. The command never runs.
 
-**▶ DEMO** · Ask Claude: *"push this to main."* Claude tries `git push`, hook denies, Claude reads the reason from the transcript and reports back — full agent-loop visible on screen.
+**▶ DEMO** · Ask Claude: _"push this to main."_ Claude tries `git push`, hook denies, Claude reads the reason from the transcript and reports back — full agent-loop visible on screen.
 
 **Why blocking > notifying:** OS notifications (`osascript`, `notify-send`) need per-machine notification permissions and can fail silently on stage. `permissionDecision` renders directly in Claude Code's UI — reliable on every machine in the room.
 
@@ -966,14 +984,14 @@ Live in `lab-app/.claude/settings.json`:
 
 ## When to reach for which — worked examples
 
-| Scenario | Pick |
-|---|---|
-| "Summarize my PRs every Monday" | **Scheduled headless + skill** |
-| "Run eslint before every Edit" | **Hook (PreToolUse on Edit)** |
-| "I want a `/onboard-repo` I can invoke" | **Skill** |
-| "Delegate deep research so my main context stays clean" | **Subagent** |
-| "Log every Bash command Claude runs" | **Hook (PreToolUse on Bash)** |
-| "Interactive Socratic debugging mentor" | **Skill** (see `/tutor` next) |
+| Scenario                                                | Pick                           |
+| ------------------------------------------------------- | ------------------------------ |
+| "Summarize my PRs every Monday"                         | **Scheduled headless + skill** |
+| "Run eslint before every Edit"                          | **Hook (PreToolUse on Edit)**  |
+| "I want a `/onboard-repo` I can invoke"                 | **Skill**                      |
+| "Delegate deep research so my main context stays clean" | **Subagent**                   |
+| "Log every Bash command Claude runs"                    | **Hook (PreToolUse on Bash)**  |
+| "Interactive Socratic debugging mentor"                 | **Skill** (see `/tutor` next)  |
 
 ---
 
@@ -990,6 +1008,7 @@ Live in `lab-app/.claude/settings.json`:
 A real, 285-line skill that turns debugging sessions and code reviews into deep learning moments.
 
 **What makes it a good teaching example:**
+
 - Non-trivial — 7 invocation modes, argument parsing, doc persistence
 - Uses **every** frontmatter field you'd care about
 - Uses a **5-layer teaching framework** — the skill body is a prompt-as-code artifact
@@ -1011,6 +1030,7 @@ argument-hint: "[topic] [--socratic] [--deep] [--review] [--debug] [--progress]"
 ```
 
 **Design choices to steal:**
+
 - `description` is **specific** — names trigger words ("tutor", "why"), so Claude auto-suggests it at the right moments.
 - `allowed-tools` is **tight** — no `Bash(rm:*)`, no destructive ops. Least privilege.
 - `argument-hint` shows flags — users discover the full API without reading the body.
@@ -1019,7 +1039,7 @@ argument-hint: "[topic] [--socratic] [--deep] [--review] [--debug] [--progress]"
 
 ## `/tutor` — the body design
 
-The body *is* the system prompt appended when invoked. Four design choices worth stealing:
+The body _is_ the system prompt appended when invoked. Four design choices worth stealing:
 
 1. **Flags compose** — `/tutor --socratic --debug "topic"`. One skill + flags beats 7 skills.
 2. **Named framework (5 layers)** — Situation → Mechanism → Principle → Adjacent → Pattern Recognition. Predictable shape; easy for the model to obey.
@@ -1038,9 +1058,9 @@ Layer 4 — Adjacent      [2-3 related concepts to round out the mental model]
 Layer 5 — Pattern       ["when you see X, check for Y, because Z"]
 ```
 
-**Why layered:** teaching collapses without structure. Without layer 1, lessons feel abstract. Without layer 3, they feel like trivia. Without layer 5, they don't *generalize* — the learner solves this bug but can't spot the class of bug.
+**Why layered:** teaching collapses without structure. Without layer 1, lessons feel abstract. Without layer 3, they feel like trivia. Without layer 5, they don't _generalize_ — the learner solves this bug but can't spot the class of bug.
 
-**The takeaway for YOUR skills:** give your skill a *named framework* its body enforces. A skill without structure is just a long prompt; a skill with structure is a reliable tool.
+**The takeaway for YOUR skills:** give your skill a _named framework_ its body enforces. A skill without structure is just a long prompt; a skill with structure is a reliable tool.
 
 ---
 
@@ -1055,8 +1075,6 @@ Every non-review lesson, `/tutor`:
 5. **Cross-references** related lessons in other domains
 
 Result: a growing, self-organizing personal knowledge base. Fully markdown. Renders in GitHub/Obsidian/VS Code.
-
-**Apply this to:** `/commit-ready` (log commit patterns), `/incident` (persist RCAs), `/onboard-repo` (build a growing project guide). Any skill whose output *accumulates* should persist.
 
 ---
 
@@ -1143,7 +1161,7 @@ tools: WebSearch, WebFetch, Read, Grep, Glob
 
 1. Write a `CLAUDE.md` for a repo you know well. Watch suggestions sharpen.
 2. Lock down `settings.json` permissions. Notice prompts drop.
-3. Ship one skill — start with `/commit-ready`.
+3. Ship one skill — start with `/tutor`.
 4. Ship one hook — `PreToolUse` on `Bash` that logs commands.
 5. Add a subagent when a task wants its own context budget.
 
