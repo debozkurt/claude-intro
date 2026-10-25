@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 06, Ch 21 — Status: Production*
 
-**Builds on:** [`06-context-cache.md`](06-context-cache.md) · [`../agents/21-cost-and-latency.md`](../agents/21-cost-and-latency.md) (cost/latency in agents).
+**Builds on:** [`06-context-cache.md`](06-context-cache.md) · [`agent-docs/21-cost-and-latency.md`](https://github.com/debozkurt/agent-docs/blob/main/21-cost-and-latency.md) (cost/latency in agents).
 
 ---
 
@@ -111,7 +111,7 @@ During a session:
 
 - [`06-context-cache.md`](06-context-cache.md) — Cache mechanics in detail
 - [`23-observability.md`](23-observability.md) — Cost as first-class telemetry
-- [`../agents/21-cost-and-latency.md`](../agents/21-cost-and-latency.md) — General cost theory
+- [`agent-docs/21-cost-and-latency.md`](https://github.com/debozkurt/agent-docs/blob/main/21-cost-and-latency.md) — General cost theory
 
 ## Sources
 

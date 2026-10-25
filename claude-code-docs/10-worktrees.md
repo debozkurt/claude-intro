@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 02, Ch 09 — Status: Running Claude*
 
-**Builds on:** [`09-session-lifecycle.md`](09-session-lifecycle.md) · [`../agents/13-when-to-split.md`](../agents/13-when-to-split.md) (when to split work).
+**Builds on:** [`09-session-lifecycle.md`](09-session-lifecycle.md) · [`agent-docs/13-when-to-split.md`](https://github.com/debozkurt/agent-docs/blob/main/13-when-to-split.md) (when to split work).
 
 ---
 
@@ -111,7 +111,7 @@ Cleanup is two steps: remove the worktree, optionally delete the branch. The wor
 
 - [`09-session-lifecycle.md`](09-session-lifecycle.md) — `/branch` (conversation fork) vs. worktree (code fork)
 - [`20-long-running-claude.md`](20-long-running-claude.md) — Session-per-worktree Ralph patterns
-- [`../agents/13-when-to-split.md`](../agents/13-when-to-split.md) — When to parallelize work
+- [`agent-docs/13-when-to-split.md`](https://github.com/debozkurt/agent-docs/blob/main/13-when-to-split.md) — When to parallelize work
 
 ## Sources
 

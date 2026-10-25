@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 07, Ch 14, Ch 16 — Status: Production*
 
-**Builds on:** [`../agents/20-guardrails-prompt-injection-security.md`](../agents/20-guardrails-prompt-injection-security.md) (general agent security).
+**Builds on:** [`agent-docs/20-guardrails-prompt-injection-security.md`](https://github.com/debozkurt/agent-docs/blob/main/20-guardrails-prompt-injection-security.md) (general agent security).
 
 ---
 
@@ -132,7 +132,7 @@ Plus a `PreToolUse` hook that logs all Bash invocations for audit.
 - [`07-permission-modes.md`](07-permission-modes.md) — Permission modes as first-pass gate
 - [`14-hooks.md`](14-hooks.md) — Hooks as second-pass deterministic check
 - [`16-mcp-in-claude-code.md`](16-mcp-in-claude-code.md) — MCP trust
-- [`../agents/20-guardrails-prompt-injection-security.md`](../agents/20-guardrails-prompt-injection-security.md) — General agent security
+- [`agent-docs/20-guardrails-prompt-injection-security.md`](https://github.com/debozkurt/agent-docs/blob/main/20-guardrails-prompt-injection-security.md) — General agent security
 
 ## Sources
 

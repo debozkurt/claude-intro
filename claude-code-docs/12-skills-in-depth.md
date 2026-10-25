@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 01 (mental model), Ch 03 (CLAUDE.md discipline) — Status: Extensions*
 
-**Builds on:** [`../agents/03-tools.md`](../agents/03-tools.md) (Tools) · [`../agents/07-prompts-as-code.md`](../agents/07-prompts-as-code.md) (Prompts as Code).
+**Builds on:** [`agent-docs/03-tools.md`](https://github.com/debozkurt/agent-docs/blob/main/03-tools.md) (Tools) · [`agent-docs/07-prompts-as-code.md`](https://github.com/debozkurt/agent-docs/blob/main/07-prompts-as-code.md) (Prompts as Code).
 
 ---
 
@@ -138,8 +138,8 @@ If the answer is "I want Claude to know how to do X whenever I ask" — skill. I
 - [`11-slash-commands.md`](11-slash-commands.md) — The simpler, user-only primitive
 - [`13-subagents-in-depth.md`](13-subagents-in-depth.md) — When isolation beats inline
 - [`25-decision-tree.md`](25-decision-tree.md) — Which primitive for which problem
-- [`../agents/03-tools.md`](../agents/03-tools.md) — Tools as agent building blocks
-- [`../agents/07-prompts-as-code.md`](../agents/07-prompts-as-code.md) — Prompts-as-code framing
+- [`agent-docs/03-tools.md`](https://github.com/debozkurt/agent-docs/blob/main/03-tools.md) — Tools as agent building blocks
+- [`agent-docs/07-prompts-as-code.md`](https://github.com/debozkurt/agent-docs/blob/main/07-prompts-as-code.md) — Prompts-as-code framing
 
 ## Sources
 

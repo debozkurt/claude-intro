@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 12 — Status: Extensions*
 
-**Builds on:** [`../agents/13-when-to-split.md`](../agents/13-when-to-split.md) · [`../agents/14-routing-patterns.md`](../agents/14-routing-patterns.md) · [`../agents/15-merge-vs-split.md`](../agents/15-merge-vs-split.md) · [`../agents/16-shared-state.md`](../agents/16-shared-state.md).
+**Builds on:** [`agent-docs/13-when-to-split.md`](https://github.com/debozkurt/agent-docs/blob/main/13-when-to-split.md) · [`agent-docs/14-routing-patterns.md`](https://github.com/debozkurt/agent-docs/blob/main/14-routing-patterns.md) · [`agent-docs/15-merge-vs-split.md`](https://github.com/debozkurt/agent-docs/blob/main/15-merge-vs-split.md) · [`agent-docs/16-shared-state.md`](https://github.com/debozkurt/agent-docs/blob/main/16-shared-state.md).
 
 ---
 
@@ -114,8 +114,8 @@ The isolation is load-bearing: the parent doesn't see Claude doing 12 web search
 - [`12-skills-in-depth.md`](12-skills-in-depth.md) — Skills can delegate to subagents
 - [`19-subagent-orchestration.md`](19-subagent-orchestration.md) — Fan-out, routing, multi-perspective patterns
 - [`25-decision-tree.md`](25-decision-tree.md) — Skill vs subagent
-- [`../agents/13-when-to-split.md`](../agents/13-when-to-split.md) — General splitting heuristics
-- [`../agents/14-routing-patterns.md`](../agents/14-routing-patterns.md) — Routing across subagents
+- [`agent-docs/13-when-to-split.md`](https://github.com/debozkurt/agent-docs/blob/main/13-when-to-split.md) — General splitting heuristics
+- [`agent-docs/14-routing-patterns.md`](https://github.com/debozkurt/agent-docs/blob/main/14-routing-patterns.md) — Routing across subagents
 
 ## Sources
 

@@ -4,7 +4,7 @@
 
 **Last verified: 2026-04-19**
 **Claude Code baseline:** v2.1.77+ (`/branch` command, new cache TTL defaults)
-**Sibling reference:** [`../agents/README.md`](../agents/README.md) — agent theory
+**Sibling reference:** [`agent-docs/README.md`](https://github.com/debozkurt/agent-docs/blob/main/README.md) — agent theory
 
 ---
 

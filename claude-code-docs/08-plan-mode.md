@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 07 — Status: Running Claude*
 
-**Builds on:** [`../agents/18-human-in-the-loop.md`](../agents/18-human-in-the-loop.md) (approval gates).
+**Builds on:** [`agent-docs/18-human-in-the-loop.md`](https://github.com/debozkurt/agent-docs/blob/main/18-human-in-the-loop.md) (approval gates).
 
 ---
 

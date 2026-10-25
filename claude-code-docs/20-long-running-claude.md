@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 09, Ch 17, Ch 19 — Status: Advanced*
 
-**Builds on:** [`../agents/29-modern-patterns.md`](../agents/29-modern-patterns.md) (Ralph loops, long-running harnesses).
+**Builds on:** [`agent-docs/29-modern-patterns.md`](https://github.com/debozkurt/agent-docs/blob/main/29-modern-patterns.md) (Ralph loops, long-running harnesses).
 
 ---
 
@@ -135,7 +135,7 @@ If any of these are missing, your "long-running" loop is actually "long-running 
 - [`10-worktrees.md`](10-worktrees.md) — Worktree-per-task for code-modifying loops
 - [`23-observability.md`](23-observability.md) — Telemetry for long-running
 - [`24-security.md`](24-security.md) — Blast-radius containment
-- [`../agents/29-modern-patterns.md`](../agents/29-modern-patterns.md) — Ralph loops in general
+- [`agent-docs/29-modern-patterns.md`](https://github.com/debozkurt/agent-docs/blob/main/29-modern-patterns.md) — Ralph loops in general
 
 ## Sources
 

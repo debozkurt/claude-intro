@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 02, Ch 03 — Status: Context & Memory*
 
-**Builds on:** [`02-on-disk-model.md`](02-on-disk-model.md) · [`../agents/10-long-term-memory.md`](../agents/10-long-term-memory.md) (Long-term memory in agents).
+**Builds on:** [`02-on-disk-model.md`](02-on-disk-model.md) · [`agent-docs/10-long-term-memory.md`](https://github.com/debozkurt/agent-docs/blob/main/10-long-term-memory.md) (Long-term memory in agents).
 
 ---
 
@@ -83,7 +83,7 @@ But auto-memory is **advisory**, same as CLAUDE.md. Long or stale `MEMORY.md` de
 
 - [`03-claude-md-discipline.md`](03-claude-md-discipline.md) — The user-authored counterpart
 - [`06-context-cache.md`](06-context-cache.md) — How auto-memory affects cache hit rate
-- [`../agents/10-long-term-memory.md`](../agents/10-long-term-memory.md) — General long-term memory patterns
+- [`agent-docs/10-long-term-memory.md`](https://github.com/debozkurt/agent-docs/blob/main/10-long-term-memory.md) — General long-term memory patterns
 
 ## Sources
 

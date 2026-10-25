@@ -151,7 +151,7 @@ summary = aggregate(findings)
 - [`17-headless-mode.md`](17-headless-mode.md) — The CLI sibling of the SDK
 - [`20-long-running-claude.md`](20-long-running-claude.md) — Long-running patterns on top of SDK
 - [`27-recipes.md`](27-recipes.md) — Concrete SDK workflows
-- [`../agents/26-reference-architecture.md`](../agents/26-reference-architecture.md) — General agent reference architecture
+- [`agent-docs/26-reference-architecture.md`](https://github.com/debozkurt/agent-docs/blob/main/26-reference-architecture.md) — General agent reference architecture
 
 ## Sources
 

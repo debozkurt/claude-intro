@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 01 — Status: MCP*
 
-**Builds on:** [`../agents/04-mcp-tools-as-protocol.md`](../agents/04-mcp-tools-as-protocol.md) (MCP theory). This chapter is a primer refresher; Ch 16 covers the Claude-Code-specific integration.
+**Builds on:** [`agent-docs/04-mcp-tools-as-protocol.md`](https://github.com/debozkurt/agent-docs/blob/main/04-mcp-tools-as-protocol.md) (MCP theory). This chapter is a primer refresher; Ch 16 covers the Claude-Code-specific integration.
 
 ---
 
@@ -81,7 +81,7 @@ This matters because MCP is no longer a proprietary integration layer — it's t
 ## See Also
 
 - [`16-mcp-in-claude-code.md`](16-mcp-in-claude-code.md) — Claude Code's specific integration
-- [`../agents/04-mcp-tools-as-protocol.md`](../agents/04-mcp-tools-as-protocol.md) — General theory
+- [`agent-docs/04-mcp-tools-as-protocol.md`](https://github.com/debozkurt/agent-docs/blob/main/04-mcp-tools-as-protocol.md) — General theory
 - [`24-security.md`](24-security.md) — MCP trust boundary
 
 ## Sources

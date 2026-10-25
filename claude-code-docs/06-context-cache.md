@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 03, Ch 05 — Status: Context & Memory*
 
-**Builds on:** [`../agents/09-context-and-cache-engineering.md`](../agents/09-context-and-cache-engineering.md) (Context & cache engineering) — this chapter specializes that general framework to Claude Code's specific cache model and controls.
+**Builds on:** [`agent-docs/09-context-and-cache-engineering.md`](https://github.com/debozkurt/agent-docs/blob/main/09-context-and-cache-engineering.md) (Context & cache engineering) — this chapter specializes that general framework to Claude Code's specific cache model and controls.
 
 ---
 
@@ -90,7 +90,7 @@ Don't let sessions grow indefinitely. A stale 200-turn session costs more and pe
 
 - [`03-claude-md-discipline.md`](03-claude-md-discipline.md) — CLAUDE.md size as cache input
 - [`22-cost-cache.md`](22-cost-cache.md) — Production cost engineering
-- [`../agents/09-context-and-cache-engineering.md`](../agents/09-context-and-cache-engineering.md) — General theory
+- [`agent-docs/09-context-and-cache-engineering.md`](https://github.com/debozkurt/agent-docs/blob/main/09-context-and-cache-engineering.md) — General theory
 
 ## Sources
 

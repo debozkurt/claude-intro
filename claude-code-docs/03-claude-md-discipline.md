@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Chapter 01 (mental model) — Status: Context & Memory*
 
-**Builds on:** [`../agents/29-modern-patterns.md` § Multi-scope instructions](../agents/29-modern-patterns.md) · [`../agents/09-context-and-cache-engineering.md`](../agents/09-context-and-cache-engineering.md) (Context & cache engineering).
+**Builds on:** [`agent-docs/29-modern-patterns.md` § Multi-scope instructions](https://github.com/debozkurt/agent-docs/blob/main/29-modern-patterns.md) · [`agent-docs/09-context-and-cache-engineering.md`](https://github.com/debozkurt/agent-docs/blob/main/09-context-and-cache-engineering.md) (Context & cache engineering).
 
 ---
 
@@ -102,7 +102,7 @@ The discipline pays rent three ways: better model behavior, lower per-turn token
 - [`01-mental-model.md`](01-mental-model.md) — Why CLAUDE.md is part of context assembly every turn
 - [`04-claude-rules.md`](04-claude-rules.md) — The path-scoped alternative for bigger projects
 - [`06-context-cache.md`](06-context-cache.md) — How CLAUDE.md size interacts with prompt caching
-- [`../agents/29-modern-patterns.md`](../agents/29-modern-patterns.md) — Multi-scope instructions in general agent design
+- [`agent-docs/29-modern-patterns.md`](https://github.com/debozkurt/agent-docs/blob/main/29-modern-patterns.md) — Multi-scope instructions in general agent design
 
 ## Sources
 

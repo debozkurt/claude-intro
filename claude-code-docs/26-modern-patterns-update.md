@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: most of this guide — Status: Meta*
 
-**Builds on:** [`../agents/29-modern-patterns.md`](../agents/29-modern-patterns.md) — this chapter is the Claude-Code-specific 2026 supplement to that chapter's broader agent-patterns view.
+**Builds on:** [`agent-docs/29-modern-patterns.md`](https://github.com/debozkurt/agent-docs/blob/main/29-modern-patterns.md) — this chapter is the Claude-Code-specific 2026 supplement to that chapter's broader agent-patterns view.
 
 ---
 
@@ -103,7 +103,7 @@ Flag these as "watch list" — likely to evolve in the next 6-12 months:
 
 ## See Also
 
-- [`../agents/29-modern-patterns.md`](../agents/29-modern-patterns.md) — The general-agent-pattern chapter this specializes
+- [`agent-docs/29-modern-patterns.md`](https://github.com/debozkurt/agent-docs/blob/main/29-modern-patterns.md) — The general-agent-pattern chapter this specializes
 - [`appendix-changelog.md`](appendix-changelog.md) — The rename / feature-change log for this guide
 - [`27-recipes.md`](27-recipes.md) — Concrete 2026 workflows
 

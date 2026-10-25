@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 01 — Status: Running Claude*
 
-**Builds on:** [`../agents/18-human-in-the-loop.md`](../agents/18-human-in-the-loop.md) (Human-in-the-loop).
+**Builds on:** [`agent-docs/18-human-in-the-loop.md`](https://github.com/debozkurt/agent-docs/blob/main/18-human-in-the-loop.md) (Human-in-the-loop).
 
 ---
 
@@ -110,7 +110,7 @@ See Ch 24 for the full security treatment including prompt injection.
 - [`08-plan-mode.md`](08-plan-mode.md) — Plan mode in depth
 - [`14-hooks.md`](14-hooks.md) — Hooks as a second layer of deterministic control
 - [`24-security.md`](24-security.md) — Prompt injection, MCP trust, YOLO blast radius
-- [`../agents/18-human-in-the-loop.md`](../agents/18-human-in-the-loop.md) — General HITL patterns
+- [`agent-docs/18-human-in-the-loop.md`](https://github.com/debozkurt/agent-docs/blob/main/18-human-in-the-loop.md) — General HITL patterns
 
 ## Sources
 

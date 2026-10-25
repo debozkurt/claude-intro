@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 14, Ch 17 — Status: Production*
 
-**Builds on:** [`14-hooks.md`](14-hooks.md) · [`../agents/22-observability.md`](../agents/22-observability.md) (agent observability).
+**Builds on:** [`14-hooks.md`](14-hooks.md) · [`agent-docs/22-observability.md`](https://github.com/debozkurt/agent-docs/blob/main/22-observability.md) (agent observability).
 
 ---
 
@@ -146,7 +146,7 @@ For Ralph loops (Ch 20), emit heartbeat from inside the loop itself — structur
 - [`14-hooks.md`](14-hooks.md) — The primitive under hook-based telemetry
 - [`20-long-running-claude.md`](20-long-running-claude.md) — Telemetry for long-running
 - [`22-cost-cache.md`](22-cost-cache.md) — Cost as a first-class metric
-- [`../agents/22-observability.md`](../agents/22-observability.md) — Agent observability theory
+- [`agent-docs/22-observability.md`](https://github.com/debozkurt/agent-docs/blob/main/22-observability.md) — Agent observability theory
 
 ## Sources
 

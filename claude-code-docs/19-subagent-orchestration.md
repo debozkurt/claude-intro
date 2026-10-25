@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 13, Ch 18 — Status: Advanced*
 
-**Builds on:** [`../agents/14-routing-patterns.md`](../agents/14-routing-patterns.md) (routing) · [`../agents/15-merge-vs-split.md`](../agents/15-merge-vs-split.md) (merge/split decisions) · [`../agents/16-shared-state.md`](../agents/16-shared-state.md) (shared state in multi-agent).
+**Builds on:** [`agent-docs/14-routing-patterns.md`](https://github.com/debozkurt/agent-docs/blob/main/14-routing-patterns.md) (routing) · [`agent-docs/15-merge-vs-split.md`](https://github.com/debozkurt/agent-docs/blob/main/15-merge-vs-split.md) (merge/split decisions) · [`agent-docs/16-shared-state.md`](https://github.com/debozkurt/agent-docs/blob/main/16-shared-state.md) (shared state in multi-agent).
 
 ---
 
@@ -150,8 +150,8 @@ Three things improve with good orchestration:
 - [`13-subagents-in-depth.md`](13-subagents-in-depth.md) — Subagent fundamentals
 - [`20-long-running-claude.md`](20-long-running-claude.md) — Orchestration in long-running loops
 - [`25-decision-tree.md`](25-decision-tree.md) — When to fan out vs route vs review
-- [`../agents/14-routing-patterns.md`](../agents/14-routing-patterns.md) — General routing theory
-- [`../agents/15-merge-vs-split.md`](../agents/15-merge-vs-split.md) — General splitting heuristics
+- [`agent-docs/14-routing-patterns.md`](https://github.com/debozkurt/agent-docs/blob/main/14-routing-patterns.md) — General routing theory
+- [`agent-docs/15-merge-vs-split.md`](https://github.com/debozkurt/agent-docs/blob/main/15-merge-vs-split.md) — General splitting heuristics
 
 ## Sources
 

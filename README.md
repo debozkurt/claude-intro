@@ -51,7 +51,7 @@ claude-code-panel/
 
 ## How to work through this lab
 
-1. **Read `presentation.md` top-to-bottom** (or open `presentation.html` in a browser for slide view).
+1. **Read `presentation.md` top-to-bottom** (or [open the slides](https://debozkurt.github.io/claude-intro/presentation.html) in a browser).
 2. **Copy `lab-app/` to a scratch dir**, `cd` into it, run `claude`:
    ```bash
    cp -r lab-app ~/scratch/claude-lab

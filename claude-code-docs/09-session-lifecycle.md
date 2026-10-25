@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 02 — Status: Running Claude*
 
-**Builds on:** [`02-on-disk-model.md`](02-on-disk-model.md) · [`../agents/12-state-recovery.md`](../agents/12-state-recovery.md) (State recovery in general agents).
+**Builds on:** [`02-on-disk-model.md`](02-on-disk-model.md) · [`agent-docs/12-state-recovery.md`](https://github.com/debozkurt/agent-docs/blob/main/12-state-recovery.md) (State recovery in general agents).
 
 ---
 
@@ -97,7 +97,7 @@ Three unlocks:
 
 - [`02-on-disk-model.md`](02-on-disk-model.md) — Where sessions live
 - [`10-worktrees.md`](10-worktrees.md) — The git-side of parallel-path exploration
-- [`../agents/12-state-recovery.md`](../agents/12-state-recovery.md) — General state-recovery patterns
+- [`agent-docs/12-state-recovery.md`](https://github.com/debozkurt/agent-docs/blob/main/12-state-recovery.md) — General state-recovery patterns
 
 ## Sources
 

@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: primer-level Claude Code familiarity — Status: Foundations*
 
-**Builds on:** [`../agents/29-modern-patterns.md`](../agents/29-modern-patterns.md) (Modern Agent Patterns) · [`../agents/05-execution-loop.md`](../agents/05-execution-loop.md) (Execution Loop) · [`../agents/01-what-is-an-agent.md`](../agents/01-what-is-an-agent.md) (What is an Agent).
+**Builds on:** [`agent-docs/29-modern-patterns.md`](https://github.com/debozkurt/agent-docs/blob/main/29-modern-patterns.md) (Modern Agent Patterns) · [`agent-docs/05-execution-loop.md`](https://github.com/debozkurt/agent-docs/blob/main/05-execution-loop.md) (Execution Loop) · [`agent-docs/01-what-is-an-agent.md`](https://github.com/debozkurt/agent-docs/blob/main/01-what-is-an-agent.md) (What is an Agent).
 
 ---
 
@@ -101,8 +101,8 @@ The root cause wasn't the model "ignoring" anything. It was context assembly —
 
 ## See Also
 
-- [`../agents/29-modern-patterns.md`](../agents/29-modern-patterns.md) — General modern patterns (Claude Code is the reference harness)
-- [`../agents/05-execution-loop.md`](../agents/05-execution-loop.md) — The generic loop this specializes
+- [`agent-docs/29-modern-patterns.md`](https://github.com/debozkurt/agent-docs/blob/main/29-modern-patterns.md) — General modern patterns (Claude Code is the reference harness)
+- [`agent-docs/05-execution-loop.md`](https://github.com/debozkurt/agent-docs/blob/main/05-execution-loop.md) — The generic loop this specializes
 - [`02-on-disk-model.md`](02-on-disk-model.md) — Where state actually lives
 - [`25-decision-tree.md`](25-decision-tree.md) — Which primitive for which problem
 

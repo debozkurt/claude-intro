@@ -116,7 +116,7 @@ Don't build one when:
 
 - [`15-mcp-protocol.md`](15-mcp-protocol.md) — MCP itself
 - [`24-security.md`](24-security.md) — MCP server supply-chain risks
-- [`../agents/04-mcp-tools-as-protocol.md`](../agents/04-mcp-tools-as-protocol.md) — General MCP theory
+- [`agent-docs/04-mcp-tools-as-protocol.md`](https://github.com/debozkurt/agent-docs/blob/main/04-mcp-tools-as-protocol.md) — General MCP theory
 
 ## Sources
 

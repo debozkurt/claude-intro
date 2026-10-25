@@ -2,7 +2,7 @@
 
 *Last verified: 2026-04-19 — Prerequisites: Ch 01 — Status: Advanced*
 
-**Builds on:** [`../agents/02-anatomy-of-an-llm-call.md`](../agents/02-anatomy-of-an-llm-call.md) (reasoning tokens and thinking budget).
+**Builds on:** [`agent-docs/02-anatomy-of-an-llm-call.md`](https://github.com/debozkurt/agent-docs/blob/main/02-anatomy-of-an-llm-call.md) (reasoning tokens and thinking budget).
 
 ---
 
@@ -129,7 +129,7 @@ Practical advice: default off. Learn when to reach for it by noticing which task
 
 - [`08-plan-mode.md`](08-plan-mode.md) — Combines well with ultrathink
 - [`22-cost-cache.md`](22-cost-cache.md) — Cost implications
-- [`../agents/02-anatomy-of-an-llm-call.md`](../agents/02-anatomy-of-an-llm-call.md) — Reasoning tokens in agent theory
+- [`agent-docs/02-anatomy-of-an-llm-call.md`](https://github.com/debozkurt/agent-docs/blob/main/02-anatomy-of-an-llm-call.md) — Reasoning tokens in agent theory
 
 ## Sources
 
