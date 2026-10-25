@@ -96,4 +96,4 @@ Common install hiccups: Node version too old, global npm directory not on `PATH`
 
 ## License
 
-The slides, guide, and cheat sheets are under [CC BY 4.0](LICENSE-docs). The demo app, the `/tutor` skill, and other code are under the [MIT License](LICENSE). Exception: `bonus-rules/advisor-model.md` comes from [open-harness](https://github.com/ryaneggz/open-harness) and stays under its Apache-2.0 license.
+The slides, guide, and cheat sheets are under [CC BY 4.0](LICENSE-docs). The demo app, the `/tutor` skill, and other code are under the [MIT License](LICENSE). Exception: `bonus-rules/advisor-model.md` is adapted from [open-harness](https://github.com/ryaneggz/open-harness), which was MIT-licensed when the file was copied. Its copyright and license notice is in [`bonus-rules/LICENSE-advisor-model`](bonus-rules/LICENSE-advisor-model).

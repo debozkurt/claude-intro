@@ -20,7 +20,7 @@ No restart needed — rules load at the start of each session.
 
 ## What's here
 
-- **`advisor-model.md`** — orchestration pattern for pairing a stronger "advisor" model with a cheaper "executor" sub-agent. Codifies the briefing format (Goal / Constraints / Acceptance / Start here / Out of scope), when to use vs. skip the pattern, and the common anti-patterns. Grounded in *Advisor Models: Synthesizing Instance-Specific Guidance for Steering Black-Box LLMs* (arXiv 2510.02453v2). Sourced from [ryaneggz/open-harness](https://github.com/ryaneggz/open-harness/blob/development/.claude/rules/advisor-model.md).
+- **`advisor-model.md`** — orchestration pattern for pairing a stronger "advisor" model with a cheaper "executor" sub-agent. Codifies the briefing format (Goal / Constraints / Acceptance / Start here / Out of scope), when to use vs. skip the pattern, and the common anti-patterns. Grounded in *Advisor Models: Synthesizing Instance-Specific Guidance for Steering Black-Box LLMs* (arXiv 2510.02453v2). Sourced from [ryaneggz/open-harness](https://github.com/ryaneggz/open-harness/blob/d277b21382bc1fc42667ec3d5413ddcd7f03abfc/.claude/rules/advisor-model.md) under the MIT License (notice in [`LICENSE-advisor-model`](LICENSE-advisor-model)).
 
 ## How this differs from the lab-app rules
 

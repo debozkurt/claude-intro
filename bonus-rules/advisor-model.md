@@ -1,6 +1,6 @@
 # Advisor Model Pattern
 
-> Source: [ryaneggz/open-harness](https://github.com/ryaneggz/open-harness/blob/development/.claude/rules/advisor-model.md) (reproduced with attribution).
+> Source: [ryaneggz/open-harness](https://github.com/ryaneggz/open-harness/blob/d277b21382bc1fc42667ec3d5413ddcd7f03abfc/.claude/rules/advisor-model.md), lightly adapted. MIT License, Copyright (c) 2026 Ryan Eggleston. Full notice: [LICENSE-advisor-model](LICENSE-advisor-model).
 > Research reference: *Advisor Models: Synthesizing Instance-Specific Guidance for Steering Black-Box LLMs* — arXiv 2510.02453v2.
 
 A stronger model acts as the **advisor** and a cheaper/faster model (or sub-agent) acts as the **executor**. The advisor reads context the executor won't have, synthesizes a briefing, then hands off. Roles — not specific model vendors — are what matter.
