@@ -27,7 +27,7 @@ claude-code-panel/
 │   │   └── design-tokens.md     # @-referenced from CLAUDE.md — demo of scoped docs
 │   └── .claude/
 │       ├── settings.json        # checked-in permissions (allow / deny / ask patterns)
-│       ├── settings.local.json  # per-user overrides (normally gitignored; checked in here for the demo)
+│       ├── settings.local.json  # per-user overrides (a sanitized example; keep yours gitignored)
 │       └── rules/               # path-scoped, modular instructions — loaded on demand
 │           ├── no-build-tooling.md
 │           └── html-accessibility.md

@@ -1,17 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Skill(update-config)",
-      "Bash(bash -c 'payload=$\\(cat\\); ts=$\\(/bin/date +%FT%T%z\\); echo \"[$ts] raw: $payload\" >> /tmp/tutor-hook.log; file=$\\(echo \"$payload\" | /opt/homebrew/bin/jq -r \".tool_input.file_path\"\\); echo \"[$ts] file=$file\" >> /tmp/tutor-hook.log; echo \"$file\" | /usr/bin/grep -q \"/\\\\.claude/skills/tutor/docs/\" && /usr/bin/osascript -e \"display notification \\\\\"Lesson saved\\\\\" with title \\\\\"/tutor\\\\\"\"')",
-      "Bash(echo \"exit=$?\")",
-      "Read(//tmp/**)",
-      "Bash(marp presentation.md --pdf --allow-local-files -o presentation.pdf)",
-      "Bash(marp presentation.md --html --allow-local-files -o presentation.html)",
-      "Read(//Users/derrick.bozkurt/Library/CloudStorage/GoogleDrive-derrick@himcolorado.com/My Drive/Developer/ai/claude-code-panel/**)",
-      "Bash(awk 'BEGIN{slide=1} /^---$/{slide++; next} {print slide\":\"NR\":\"$0}' presentation.md)",
-      "Bash(awk -F: '$1==34')",
-      "Bash(awk 'BEGIN{slide=1} /^---$/{slide++; next} slide==34 || slide==35{print slide\":\"NR\":\"$0}' presentation.md)",
-      "Bash(awk 'BEGIN{slide=1} /^---$/{slide++; next} slide>=33 && slide<=36{print slide\":\"NR\":\"$0}' presentation.md)"
+      "Bash(python3 -m http.server:*)",
+      "Read(//tmp/**)"
     ]
   }
 }
