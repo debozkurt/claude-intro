@@ -94,6 +94,6 @@ Common install hiccups: Node version too old, global npm directory not on `PATH`
 
 ---
 
-## License / use
+## License
 
-Lab materials — use, adapt, fork freely. The `/tutor` skill is MIT-spirit: copy it, change it, ship it.
+The slides, guide, and cheat sheets are under [CC BY 4.0](LICENSE-docs). The demo app, the `/tutor` skill, and other code are under the [MIT License](LICENSE). Exception: `bonus-rules/advisor-model.md` comes from [open-harness](https://github.com/ryaneggz/open-harness) and stays under its Apache-2.0 license.
